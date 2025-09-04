@@ -1,0 +1,190 @@
+# SQL-Public-Site customization template
+# Fill this out to customize content, branding, navigation, SEO, and integrations.
+# Fields marked REQUIRED must be provided. Others have sensible defaults.
+# Paths starting with / resolve from the Next.js public/ folder unless noted.
+
+version: 1
+project:
+  name: "REQUIRED: Company name"
+  domain: "example.com"  # Recommended: production domain
+  environment: "production"  # options: development|staging|production
+
+brand:
+  logo: "/logo.svg"  # Path under /public; replace with your logo file
+  favicon: "/favicon.ico"  # app/favicon.ico already present, override if needed
+  darkMode: true  # Enable Tailwind dark mode variants
+  colors:
+    primary: "#0EA5E9"  # Tailwind sky-500
+    secondary: "#1F2937"  # Tailwind gray-800
+    accent: "#22C55E"  # Tailwind green-500
+    backgroundLight: "#FFFFFF"
+    backgroundDark: "#0B1220"
+  typography:
+    headingFont: "Inter"  # Google Font name
+    bodyFont: "Inter"
+    # Optional: set to empty to keep defaults; used if importing via <link> in layout
+    googleFontsHref: "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+
+content:
+  hero:
+    tagline: "REQUIRED: Short descriptor, e.g., SQL Performance Consulting"
+    headline: "REQUIRED: Clear value-driven headline"
+    subheadline: "One or two sentences that expand on the value proposition."
+    primaryCta:
+      label: "Book a consultation"
+      href: "/contact"  # or external URL e.g., Calendly link
+      kind: "link"  # options: link|mailto|calendly
+    secondaryCta:
+      label: "Learn more"
+      href: "/services"
+  differentiators:
+    - "Senior experts, not juniors"
+    - "Guaranteed measurable improvements"
+    - "Transparent fixed-fee engagements"
+  testimonials:  # Optional
+    - name: "Jane Doe"
+      title: "CTO, Acme Corp"
+      quote: "They cut our query times by 85% in two weeks."
+
+services:
+  overview: "Brief statement about what you offer overall."
+  items:
+    - name: "Performance Tuning"
+      short: "Find and fix bottlenecks in SQL workloads."
+      details:
+        - "Query plan analysis and indexing strategy"
+        - "Parameter sniffing and cache optimization"
+        - "Wait stats and blocking diagnostics"
+      cta:
+        label: "Explore"
+        href: "/services/performance-tuning"
+    - name: "Health Check"
+      short: "Baseline health and prioritized remediation plan."
+      details:
+        - "Configuration audit and best practices"
+        - "Storage and memory optimization"
+        - "Backup, HA/DR review"
+      cta:
+        label: "Explore"
+        href: "/services/health-check"
+
+pages:
+  # Enable/disable pages and define basic structure. 
+  home:
+    enabled: true
+    sections: [hero, services, testimonials, cta]
+  about:
+    enabled: true
+    team: []  # Optional: add members with name, role, photo
+  services:
+    enabled: true
+    detailPages: true
+  caseStudies:
+    enabled: false
+  blog:
+    enabled: false
+  faq:
+    enabled: true
+  pricing:
+    enabled: false
+  contact:
+    enabled: true
+
+navigation:
+  header:
+    - label: "Services"
+      href: "/services"
+    - label: "About"
+      href: "/about"
+    - label: "Contact"
+      href: "/contact"
+  footer:
+    columns:
+      - title: "Company"
+        links:
+          - label: "About"
+            href: "/about"
+          - label: "Privacy"
+            href: "/privacy"
+      - title: "Resources"
+        links:
+          - label: "Blog"
+            href: "/blog"
+
+conversion:
+  primaryCta:
+    label: "Book a call"
+    href: "/contact"  # or Calendly external URL
+  contact:
+    email: "info@example.com"
+    phone: ""  # optional
+    address: ""  # optional plain text or multiline
+  leadMagnet:  # Optional
+    title: "SQL Tuning Checklist"
+    assetUrl: "https://example.com/checklist.pdf"
+
+integrations:
+  analytics:
+    provider: "none"  # options: ga4|plausible|posthog|none
+    ga4MeasurementId: ""  # e.g., G-XXXXXXX if provider=ga4
+    plausibleDomain: ""  # e.g., example.com if provider=plausible
+    posthogKey: ""
+    posthogHost: "https://app.posthog.com"
+  crm:
+    provider: "none"  # options: none|hubspot|mailchimp
+    apiKeyEnv: ""  # environment variable name to use in hosting platform
+  forms:
+    handler: "none"  # options: formspree|smtp|none
+    formspreeId: ""
+  scheduling:
+    calendlyUrl: ""  # if using Calendly for bookings
+
+seo:
+  titleTemplate: "%s | ${project.name}"
+  defaultTitle: "REQUIRED: Default SEO title"
+  defaultDescription: "Concise description for search and social previews (<=155 chars)."
+  keywords: ["sql performance", "database tuning", "azure sql"]
+  openGraphImage: "/og.png"  # Place image in /public
+  twitterHandle: "@yourhandle"
+  sitemap:
+    include: ["/", "/about", "/services", "/contact"]
+    exclude: []
+
+legal:
+  privacyPolicyUrl: "/privacy"
+  termsUrl: "/terms"
+  cookieBanner: false
+
+social:
+  linkedin: "https://www.linkedin.com/company/your-company"
+  github: "https://github.com/your-org"
+  twitter: "https://x.com/your-handle"
+
+assets:
+  # Paths relative to /public
+  images:
+    - src: "/hero.jpg"
+      alt: "Server racks"
+    - src: "/team.jpg"
+      alt: "Team photo"
+  clientLogos:
+    - src: "/clients/acme.svg"
+      alt: "Acme Corp"
+      url: "https://acme.com"
+
+operations:
+  hosting: "vercel"  # Recommended for Next.js
+  performanceTargets:
+    lighthouse:
+      performance: 90
+      accessibility: 90
+      bestPractices: 90
+      seo: 90
+  deadline: ""  # Optional date string
+
+# Optional mapping to help implementers know where values apply in the codebase.
+# - Colors, typography: tailwind.config.ts, app/globals.css
+# - Metadata, layout: app/layout.tsx
+# - Homepage sections: app/page.tsx
+# - Images and icons: public/
+# - Config-driven additions may require small code updates to read this YAML.
