@@ -3,11 +3,16 @@
 Purpose: help automated or human agents safely modify this Next.js 14 template (App Router + Tailwind) and ship changes with confidence.
 
 ## Customization: “Make this site mine”
-Use the YAML at `.github/Creation/customization-template.yaml` to collect branding, content, navigation, SEO, and integrations, then produce a filled `.github/Creation/customization.yaml` plus assets in `public/`.
+To keep this playbook concise, the full customization workflow, modes, and sequential Q&A are documented here:
 
-Modes
-- Simple: ask minimal, high-level questions; infer sensible defaults and keep placeholders where needed.
-- Advanced: ask field-by-field questions to fully populate the YAML; no inference unless explicitly requested.
+- `.github/Creation/Make this site mine/instructions.md` — step-by-step agent workflow
+- `/.github/Creation/customization-template.yaml` — input schema
+- `/.github/Creation/customization.yaml` — output to produce
+
+Minimum agent contract
+- Use the above instructions to collect inputs and generate `customization.yaml`.
+- Place assets in `/public/` and update YAML paths.
+- Summarize missing fields and defaults; list env var NAMES only (no secret values).
 
 What to ask (Simple mode)
 - Company basics: company name (REQUIRED), primary domain, environment (dev/staging/prod).

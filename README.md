@@ -21,7 +21,7 @@ How it works
 	- Services list (name, short description, a few bullets), primary/secondary CTAs and links
 	- SEO defaults (title ≤60 chars, description ≤155 chars, keywords), OG image, sitemap routes
 	- Analytics IDs, CRM provider + environment variable name, Formspree ID, Calendly URL
-2) In a new chat with your AI agent, attach `/.github/Creation/customization-template.yaml` and say: “Make this site mine (Simple)” or “Make this site mine (Advanced)”.
+2) In a new chat with your AI agent, attach `/.github/Agents.md` and say: “Make this site mine (Simple)” or “Make this site mine (Advanced)”.
 3) Answer a short series of questions. The agent will produce `/.github/Creation/customization.yaml`, suggest any missing values/defaults, and list environment variable NAMES to set in hosting (never commit secrets).
 4) Add/upload assets to `/public/` as referenced by the YAML. The agent can help validate paths.
 5) Optionally, wire the YAML into components/config (navigation, hero, services, SEO). See links below.
