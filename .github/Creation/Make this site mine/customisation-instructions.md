@@ -43,3 +43,43 @@ Example prompts
   - 1) project { name (REQUIRED), domain, environment }; brand.darkMode? brand.colors.primary?
   - 2) content.hero { tagline (REQUIRED), headline (REQUIRED), subheadline }; primaryCta { label, href, kind }.
   - 3) pages enable flags (home/about/services/contact/faq); navigation.header top 3 links.
+
+What to ask (Simple mode)
+- Company basics: company name (REQUIRED), primary domain, environment (dev/staging/prod).
+- Value prop: hero tagline, headline, short subheadline; 3 differentiators.
+- Primary action: CTA label and link (contact page or Calendly). Secondary CTA optional.
+- Pages to enable: About, Services, Contact, FAQ; others optional.
+- Branding: main color (hex or name), dark mode on/off, logo and favicon file or URL.
+- Social & contact: LinkedIn/GitHub/Twitter, contact email.
+- SEO: default title and description; OG image if available.
+
+What to ask (Advanced mode)
+- project: name (REQUIRED), domain, environment.
+- brand: logo, favicon, darkMode; colors (primary, secondary, accent, backgroundLight/Dark); typography (headingFont, bodyFont, googleFontsHref).
+- content.hero: tagline (REQUIRED), headline (REQUIRED), subheadline, primary/secondary CTAs (label/href/kind), differentiators, testimonials (name/title/quote).
+- services: overview, items[] with name, short, details[], and cta { label, href }.
+- pages: enable flags; about.team[]; services.detailPages; blog/caseStudies/pricing.
+- navigation: header links; footer columns/links.
+- conversion: primaryCta; contact { email, phone, address }; leadMagnet { title, assetUrl }.
+- integrations: analytics provider + IDs; crm provider + apiKeyEnv; forms handler; scheduling.calendlyUrl.
+- seo: titleTemplate, defaultTitle (REQUIRED), defaultDescription, keywords[], openGraphImage, twitterHandle, sitemap include/exclude.
+- legal: privacyPolicyUrl, termsUrl, cookieBanner.
+- social: linkedin, github, twitter.
+- assets: images[] { src, alt }, clientLogos[] { src, alt, url }.
+- operations: hosting, performanceTargets (lighthouse scores), deadline.
+
+What users can provide to accelerate answers
+- Brand kit: logo (SVG/PNG), favicon (ICO/PNG), color palette, typography/Google Fonts choices.
+- Existing website URL or brochure for services/testimonials (only use with permission; do not scrape secrets).
+- Social profile URLs; contact email/phone/address.
+- Analytics IDs (GA4 ID, Plausible domain, PostHog key), CRM provider name and the environment variable name (not the secret value), Formspree ID, Calendly URL.
+- SEO assets: OG image, keywords, sitemap or desired routes list.
+- Legal URLs or documents for privacy/terms; cookie banner preference.
+- Client logos and permission to display.
+
+Output contract
+- Deliver a filled `.github/Creation/customization.yaml` (same schema as the template).
+- Place assets in `public/` and update YAML paths accordingly.
+- Summarize any missing fields and propose safe defaults.
+- List environment variables to set (only names in code/hosting; never commit values).
+- Optional follow-up: propose code wiring tasks to consume the YAML.
