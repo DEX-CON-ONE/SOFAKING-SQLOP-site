@@ -48,8 +48,9 @@ body {
   }
 }
 
-.scroll-reveal {
-  animation: fadeInUp 0.8s ease-out;
+
+.scroll-reveal.revealed {
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .float-animation {
@@ -58,7 +59,7 @@ body {
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .scroll-reveal {
+  .scroll-reveal.revealed {
     animation: none;
   }
   .float-animation {

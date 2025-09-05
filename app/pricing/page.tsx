@@ -7,37 +7,6 @@ import Image from "next/image";
 export default function Pricing() {
   return (
     <div className="min-h-screen">
-      {/* Header */}
-      <header className="bg-white/10 backdrop-blur-md shadow-sm sticky top-0 z-50">
-        <div className="container-max">
-          <div className="flex flex-col items-center justify-center py-6 space-y-4 md:flex-row md:justify-between md:space-y-0">
-            <div className="flex items-center">
-              <Link href="/">
-                <Image 
-                  src="/assets/brand/Brand_Logo-stacked.png" 
-                  alt="SQLOPTIMISE Logo" 
-                  width={120} 
-                  height={60}
-                  className="h-12 w-auto"
-                />
-              </Link>
-            </div>
-            
-            <nav className="flex space-x-8">
-              <Link href="/services" className="text-white hover:text-secondary transition-colors font-medium drop-shadow-md">Services</Link>
-              <Link href="/case-studies" className="text-white hover:text-secondary transition-colors font-medium drop-shadow-md">Case Studies</Link>
-              <Link href="/pricing" className="text-secondary font-medium drop-shadow-md">Pricing</Link>
-              <Link href="/about" className="text-white hover:text-secondary transition-colors font-medium drop-shadow-md">About</Link>
-              <Link href="/contact" className="text-white hover:text-secondary transition-colors font-medium drop-shadow-md">Contact</Link>
-            </nav>
-            
-            <a href="https://outlook.office.com/book/SQLOPTIMISE@NETORGFT9176567.onmicrosoft.com/" className="btn-primary">
-              Schedule a Call
-            </a>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <section className="hero-fullscreen min-h-[60vh] flex flex-col items-center justify-center text-white relative">
         <div className="hero-overlay"></div>

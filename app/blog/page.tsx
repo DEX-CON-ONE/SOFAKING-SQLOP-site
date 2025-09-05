@@ -35,36 +35,6 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container-max">
-          <div className="flex flex-col items-center justify-center py-6 space-y-4 md:flex-row md:justify-between md:space-y-0">
-            <div className="flex items-center">
-              <Link href="/">
-                <Image 
-                  src="/assets/brand/Brand_Logo-stacked.png" 
-                  alt="SQLOPTIMISE Logo" 
-                  width={120} 
-                  height={60}
-                  className="h-12 w-auto"
-                />
-              </Link>
-            </div>
-            
-            <nav className="flex space-x-8">
-              <Link href="/services" className="text-secondary hover:text-primary transition-colors font-medium">Services</Link>
-              <Link href="/about" className="text-secondary hover:text-primary transition-colors font-medium">About</Link>
-              <Link href="/blog" className="text-primary font-medium">Blog</Link>
-              <Link href="/contact" className="text-secondary hover:text-primary transition-colors font-medium">Contact</Link>
-            </nav>
-            
-            <a href="https://outlook.office.com/book/SQLOPTIMISE@NETORGFT9176567.onmicrosoft.com/" className="btn-primary">
-              Schedule a Call
-            </a>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-secondary text-white section-padding">
         <div className="container-max text-center">
