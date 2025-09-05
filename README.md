@@ -35,7 +35,8 @@ Key files
 - Customization output (result): `/.github/Creation/customization.yaml`
 - Assets: `/public/` (images/logos referenced from YAML)
 - Agent playbook: `Agents.md` (flows, guardrails, and checklists)
-- Copilot instructions: `Instructions.md` (short guide that points to the playbook)
+- Look & feel template: `/.github/Make this site mine/look-and-feel-template.yaml` → copy to `/.github/Creation/Make this site mine/look-and-feel.yaml`
+- Copilot instructions: see `Agents.md` (playbook) and `.github/Creation/Make this site mine/customisation-instructions.md`
 
 Where values map in the codebase
 - Colors/typography: `tailwind.config.ts`, `app/globals.css`
@@ -51,7 +52,7 @@ Safety and privacy
 
 Learn more and suggested flows
 - For agent workflows and detailed guidance, see `Agents.md`.
-- For a short instruction set for AI tools, see `Instructions.md`.
+- For a short instruction set for AI tools, see `Agents.md` and `.github/Creation/Make this site mine/customisation-instructions.md`.
 
 ## Running locally
 
