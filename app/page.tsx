@@ -22,8 +22,9 @@ export default function Home() {
             {/* Navigation - Centered */}
             <nav className="flex space-x-8">
               <Link href="/services" className="text-white hover:text-secondary transition-colors font-medium drop-shadow-md">Services</Link>
+              <Link href="/case-studies" className="text-white hover:text-secondary transition-colors font-medium drop-shadow-md">Case Studies</Link>
+              <Link href="/pricing" className="text-white hover:text-secondary transition-colors font-medium drop-shadow-md">Pricing</Link>
               <Link href="/about" className="text-white hover:text-secondary transition-colors font-medium drop-shadow-md">About</Link>
-              <Link href="/blog" className="text-white hover:text-secondary transition-colors font-medium drop-shadow-md">Blog</Link>
               <Link href="/contact" className="text-white hover:text-secondary transition-colors font-medium drop-shadow-md">Contact</Link>
             </nav>
             
@@ -60,8 +61,8 @@ export default function Home() {
               <a href="https://outlook.office.com/book/SQLOPTIMISE@NETORGFT9176567.onmicrosoft.com/" className="btn-primary text-lg">
                 Schedule a Call
               </a>
-              <Link href="/blog" className="btn-secondary text-lg">
-                Read more
+              <Link href="/services" className="btn-secondary text-lg">
+                View Services
               </Link>
             </div>
           </div>
