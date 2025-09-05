@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Centered Header - More translucent to show background */}
-      <header className="bg-white/20 backdrop-blur-md shadow-sm sticky top-0 z-50">
+      <header className="bg-white/10 backdrop-blur-md shadow-sm sticky top-0 z-50">
         <div className="container-max">
           <div className="flex flex-col items-center justify-center py-6 space-y-4 md:flex-row md:justify-between md:space-y-0">
             {/* Logo - Centered on mobile, left on desktop */}
@@ -80,8 +80,8 @@ export default function Home() {
 
       {/* Content with Static Background */}
       <div className="content-background">
-        {/* Differentiators - Infographic Style with Very Translucent Background */}
-        <section className="bg-white/5 backdrop-blur-sm section-padding">
+        {/* Differentiators - Infographic Style showing background through */}
+        <section className="section-padding">
           <div className="container-max">
             <div className="scroll-reveal text-center mb-16">
               <h2 className="text-4xl font-bold text-white mb-4 drop-shadow-lg text-shadow-lg">Why Choose SQLOPTIMISE</h2>
@@ -90,41 +90,41 @@ export default function Home() {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="card-elevated p-8 text-center bg-white/90 backdrop-blur-sm border border-white/30 shadow-xl">
+              <div className="card-elevated p-8 text-center bg-white/20 backdrop-blur-sm border border-white/40 shadow-xl">
                 <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                   </svg>
                 </div>
-                <h3 className="font-bold text-xl mb-4 text-gray-900">Senior experts, not juniors</h3>
-                <p className="text-gray-600 leading-relaxed">Experienced SQL professionals with proven track records delivering enterprise-grade solutions</p>
+                <h3 className="font-bold text-xl mb-4 text-white drop-shadow-md text-shadow">Senior experts, not juniors</h3>
+                <p className="text-white/90 leading-relaxed drop-shadow-sm text-shadow">Experienced SQL professionals with proven track records delivering enterprise-grade solutions</p>
               </div>
               
-              <div className="card-elevated p-8 text-center bg-white/90 backdrop-blur-sm border border-white/30 shadow-xl">
+              <div className="card-elevated p-8 text-center bg-white/20 backdrop-blur-sm border border-white/40 shadow-xl">
                 <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                 </div>
-                <h3 className="font-bold text-xl mb-4 text-gray-900">Guaranteed measurable improvements</h3>
-                <p className="text-gray-600 leading-relaxed">Proven performance gains you can measure and trust, backed by our performance guarantee</p>
+                <h3 className="font-bold text-xl mb-4 text-white drop-shadow-md text-shadow">Guaranteed measurable improvements</h3>
+                <p className="text-white/90 leading-relaxed drop-shadow-sm text-shadow">Proven performance gains you can measure and trust, backed by our performance guarantee</p>
               </div>
               
-              <div className="card-elevated p-8 text-center bg-white/90 backdrop-blur-sm border border-white/30 shadow-xl">
+              <div className="card-elevated p-8 text-center bg-white/20 backdrop-blur-sm border border-white/40 shadow-xl">
                 <div className="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                   </svg>
                 </div>
-                <h3 className="font-bold text-xl mb-4 text-gray-900">Transparent fixed-fee engagements</h3>
-                <p className="text-gray-600 leading-relaxed">Clear pricing with no hidden costs or surprises. Know exactly what you're paying upfront</p>
+                <h3 className="font-bold text-xl mb-4 text-white drop-shadow-md text-shadow">Transparent fixed-fee engagements</h3>
+                <p className="text-white/90 leading-relaxed drop-shadow-sm text-shadow">Clear pricing with no hidden costs or surprises. Know exactly what you're paying upfront</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Services Section - Infographic Style with Very Translucent Background */}
-        <section className="bg-white/5 backdrop-blur-sm section-padding">
+        {/* Services Section - Infographic Style showing background through */}
+        <section className="section-padding">
           <div className="container-max">
             <div className="scroll-reveal text-center mb-16">
               <h2 className="text-4xl font-bold text-white mb-4 drop-shadow-lg text-shadow-lg">Our Services</h2>
@@ -135,35 +135,35 @@ export default function Home() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Performance Tuning */}
-              <div className="card-elevated p-10 group bg-white/90 backdrop-blur-sm border border-white/30 shadow-xl">
+              <div className="card-elevated p-10 group bg-white/20 backdrop-blur-sm border border-white/40 shadow-xl">
                 <div className="w-16 h-16 bg-gradient-to-r from-primary to-pink-500 rounded-xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-3xl font-bold mb-6 text-gray-900">Performance Tuning</h3>
-                <p className="text-gray-600 mb-8 text-lg leading-relaxed">Find and fix bottlenecks in SQL workloads with precision diagnostics and optimization.</p>
+                <h3 className="text-3xl font-bold mb-6 text-white drop-shadow-md text-shadow">Performance Tuning</h3>
+                <p className="text-white/90 mb-8 text-lg leading-relaxed drop-shadow-sm text-shadow">Find and fix bottlenecks in SQL workloads with precision diagnostics and optimization.</p>
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-start">
                     <svg className="w-6 h-6 text-accent mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-gray-700 font-medium">Query plan analysis and indexing strategy</span>
+                    <span className="text-white/90 font-medium drop-shadow-sm text-shadow">Query plan analysis and indexing strategy</span>
                   </li>
                   <li className="flex items-start">
                     <svg className="w-6 h-6 text-accent mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-gray-700 font-medium">Parameter sniffing and cache optimization</span>
+                    <span className="text-white/90 font-medium drop-shadow-sm text-shadow">Parameter sniffing and cache optimization</span>
                   </li>
                   <li className="flex items-start">
                     <svg className="w-6 h-6 text-accent mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-gray-700 font-medium">Wait stats and blocking diagnostics</span>
+                    <span className="text-white/90 font-medium drop-shadow-sm text-shadow">Wait stats and blocking diagnostics</span>
                   </li>
                 </ul>
-                <Link href="/services/performance-tuning" className="inline-flex items-center text-primary font-bold text-lg hover:text-opacity-80 transition-colors">
+                <Link href="/services/performance-tuning" className="inline-flex items-center text-primary font-bold text-lg hover:text-opacity-80 transition-colors drop-shadow-md">
                   Explore Service 
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -172,35 +172,35 @@ export default function Home() {
               </div>
 
               {/* Health Check */}
-              <div className="card-elevated p-10 group bg-white/90 backdrop-blur-sm border border-white/30 shadow-xl">
+              <div className="card-elevated p-10 group bg-white/20 backdrop-blur-sm border border-white/40 shadow-xl">
                 <div className="w-16 h-16 bg-gradient-to-r from-accent to-green-400 rounded-xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-3xl font-bold mb-6 text-gray-900">Health Check</h3>
-                <p className="text-gray-600 mb-8 text-lg leading-relaxed">Comprehensive baseline health assessment with prioritized remediation plan.</p>
+                <h3 className="text-3xl font-bold mb-6 text-white drop-shadow-md text-shadow">Health Check</h3>
+                <p className="text-white/90 mb-8 text-lg leading-relaxed drop-shadow-sm text-shadow">Comprehensive baseline health assessment with prioritized remediation plan.</p>
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-start">
                     <svg className="w-6 h-6 text-accent mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-gray-700 font-medium">Configuration audit and best practices</span>
+                    <span className="text-white/90 font-medium drop-shadow-sm text-shadow">Configuration audit and best practices</span>
                   </li>
                   <li className="flex items-start">
                     <svg className="w-6 h-6 text-accent mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-gray-700 font-medium">Storage and memory optimization</span>
+                    <span className="text-white/90 font-medium drop-shadow-sm text-shadow">Storage and memory optimization</span>
                   </li>
                   <li className="flex items-start">
                     <svg className="w-6 h-6 text-accent mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-gray-700 font-medium">Backup, HA/DR review</span>
+                    <span className="text-white/90 font-medium drop-shadow-sm text-shadow">Backup, HA/DR review</span>
                   </li>
                 </ul>
-                <Link href="/services/health-check" className="inline-flex items-center text-primary font-bold text-lg hover:text-opacity-80 transition-colors">
+                <Link href="/services/health-check" className="inline-flex items-center text-primary font-bold text-lg hover:text-opacity-80 transition-colors drop-shadow-md">
                   Explore Service 
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -211,8 +211,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Enhanced CTA Section - Very Translucent to show background */}
-        <section className="bg-gradient-to-r from-primary/20 to-secondary/15 backdrop-blur-sm text-white section-padding">
+        {/* Enhanced CTA Section - Transparent to show background */}
+        <section className="bg-gradient-to-r from-primary/10 to-secondary/8 backdrop-blur-sm text-white section-padding">
           <div className="container-max text-center">
             <div className="scroll-reveal">
               <h2 className="text-5xl font-bold mb-6 drop-shadow-lg text-shadow-lg">Ready to Optimize Your Database?</h2>
@@ -229,8 +229,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Simple AI Chat Component - Very Translucent to show background */}
-        <section className="bg-white/5 backdrop-blur-sm text-white py-12">
+        {/* Simple AI Chat Component - Transparent to show background */}
+        <section className="text-white py-12">
           <div className="container-max">
             <div className="ai-chat-simple max-w-4xl mx-auto text-center">
               <h3 className="text-2xl font-bold mb-4 text-white drop-shadow-md text-shadow">Need Quick Help?</h3>
@@ -252,8 +252,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Enhanced Footer - Semi-translucent to show background */}
-        <footer className="bg-gray-900/75 backdrop-blur-sm text-white section-padding border-t border-white/10">
+        {/* Enhanced Footer - More translucent to show background */}
+        <footer className="bg-gray-900/50 backdrop-blur-sm text-white section-padding border-t border-white/10">
           <div className="container-max">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
               <div className="md:col-span-2">
