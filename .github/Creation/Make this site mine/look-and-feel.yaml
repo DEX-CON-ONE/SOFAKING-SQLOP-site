@@ -62,7 +62,7 @@ components:
   # Implementer note: translucent appearance with soft borders and subtle emphasis
   cards:
     style: "elevated"
-  hover: "lift"
+    hover: "lift"
     padding: "md"
   # Implementer notes: translucent with subtle border; light glow on hover
   forms:
