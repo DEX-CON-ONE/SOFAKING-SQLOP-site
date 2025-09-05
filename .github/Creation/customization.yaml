@@ -124,11 +124,11 @@ integrations:
   posthogKey: "NEXT_PUBLIC_POSTHOG_KEY"  # env var NAME; set value in .env.local or hosting
   posthogHost: "NEXT_PUBLIC_POSTHOG_HOST"  # env var NAME; set value in .env.local or hosting
   crm:
-  provider: "hubspot"  # options: none|hubspot|mailchimp
-  apiKeyEnv: "HUBSPOT_ACCESS_TOKEN"  # confirm env var NAME; value not committed
-  forms:
-    handler: "none"  # options: formspree|smtp|none
-    formspreeId: ""
+    provider: "hubspot"  # options: none|hubspot|mailchimp
+    apiKeyEnv: "HUBSPOT_ACCESS_TOKEN"  # confirm env var NAME; value not committed
+    forms:
+      handler: "none"  # options: formspree|smtp|none
+      formspreeId: ""
   scheduling:
     calendlyUrl: ""  # using Office 365 Bookings via primary CTA link
 
