@@ -58,8 +58,7 @@ components:
   buttons:
     shape: "pill"
     size: "md"
-  emphasis: "outline"
-    corners: "md"
+  corners: "md"
   # Implementer note: translucent appearance with soft borders and subtle emphasis
   cards:
     style: "elevated"
