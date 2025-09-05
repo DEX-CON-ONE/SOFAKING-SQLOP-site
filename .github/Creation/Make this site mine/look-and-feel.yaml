@@ -72,9 +72,7 @@ components:
 
 sections:
   hero:
-  layout: "center"
-  media: "video"
-    ctaStyle: "dual"
+  ctaStyle: "dual"
   featureGrid:
     columns: 3
     iconStyle: "line"
