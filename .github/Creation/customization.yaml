@@ -11,8 +11,8 @@ brand:
   favicon: "/assets/brand/favicon.png"
   darkMode: true  # default to system preference; toggle can override in UI
   colors:
-    primary: "#0EA5E9"  # default; confirm brand color
-    secondary: "#1F2937"
+  primary: "#E407F0"
+  secondary: "#FAB700"
     accent: "#22C55E"
     backgroundLight: "#FFFFFF"
     backgroundDark: "#0B1220"

@@ -1,0 +1,111 @@
+version: 1
+meta:
+  capturedAt: "2025-09-05"
+  capturedBy: "GitHub Copilot"
+  sourceFiles: []
+
+inspiration:
+  sites:
+    - url: "https://openai.com/"
+      whatWeLike: ["chat-first greeting", "simple", "modern"]
+    - url: "https://www.brentozar.com/"
+      whatWeLike: ["content organization", "scripts & resources layout", "blog discoverability"]
+  mood:
+    - image: ""
+      tags: ["modern", "flow", "immersive", "translucent", "centered-header"]
+
+brand:
+  palette:
+  primary: "#E407F0"
+  secondary: "#FAB700"
+    accent: "#22C55E"
+    neutrals: []
+    semantic:
+      success: ""
+      warning: ""
+      error: ""
+      info: ""
+  typography:
+    headingFont: "Inter"
+    bodyFont: "Inter"
+    scale: {}
+    googleFontsHref: "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+  imagery:
+    style: []
+    treatment: []
+    people: ""
+
+layout:
+  container: "standard"
+  maxWidthPx: null
+  grid: "tailwind-default"
+  gutter: "md"
+  spacingScaleBase: 4
+  radius: "md"
+  shadows: "soft"
+  borders: "regular"
+  motion:
+    level: "subtle"
+    respectsReducedMotion: true
+
+navigation:
+  headerStyle: "centered"
+  sticky: "on-scroll-up"
+  ctaPresence: "primary"
+  footerStyle: "columns"
+
+components:
+  buttons:
+    shape: "pill"
+    size: "md"
+  emphasis: "outline"
+    corners: "md"
+  # Implementer note: translucent appearance with soft borders and subtle emphasis
+  cards:
+    style: "elevated"
+  hover: "lift"
+    padding: "md"
+  # Implementer notes: translucent with subtle border; light glow on hover
+  forms:
+    labelStyle: "stacked"
+    fieldShape: "rounded"
+    validationStyle: "subtle"
+
+sections:
+  hero:
+  layout: "center"
+  media: "video"
+    ctaStyle: "dual"
+  featureGrid:
+    columns: 3
+    iconStyle: "line"
+  testimonials:
+    style: "grid"
+    avatar: "show"
+  caseStudies:
+    cardStyle: "image-top"
+
+accessibility:
+  contrast: "AA"
+  linkUnderlines: "on-hover"
+  focusVisible: true
+  prefersColorScheme: "system"
+
+assets:
+  logo: "/assets/brand/Brand_Logo-stacked.png"
+  ogImage: "/assets/brand/OG_image.png"
+  imageGuidelines: ""
+
+priorities:
+  - area: "brand"
+    weight: 4
+    notes: "Enterprise/credible look"
+  - area: "landing-page"
+    weight: 5
+  notes: "Fullscreen hero with dynamic animation; scroll-reveal sections; clear primary CTA"
+  - area: "blog"
+    weight: 4
+    notes: "Readable typography"
+  - area: "embeds"
+    weight: 3
+  notes: "Support 3rd-party bookings/analytics; bottom-of-page AI chat embed"
