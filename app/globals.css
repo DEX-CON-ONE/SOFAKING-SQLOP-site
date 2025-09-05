@@ -33,13 +33,63 @@ body {
   }
 }
 
+/* Scroll-reveal animations with reduced motion support */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.scroll-reveal {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    animation: none;
+  }
+  .float-animation {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
 @layer components {
+  /* Pill-shaped buttons as per specification */
   .btn-primary {
-    @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors duration-200;
+    @apply bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
   }
   
   .btn-secondary {
-    @apply bg-transparent border-2 border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors duration-200;
+    @apply bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+  
+  /* Elevated cards with lift hover effect */
+  .card-elevated {
+    @apply bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100;
   }
   
   .section-padding {
@@ -48,5 +98,27 @@ body {
   
   .container-max {
     @apply max-w-7xl mx-auto;
+  }
+  
+  /* Fullscreen hero background */
+  .hero-fullscreen {
+    background-image: url('/assets/brand/website_BG-static.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+  }
+  
+  /* Dynamic overlay for hero */
+  .hero-overlay {
+    background: linear-gradient(135deg, rgba(228, 7, 240, 0.9) 0%, rgba(250, 183, 0, 0.8) 100%);
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
   }
 }

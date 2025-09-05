@@ -5,6 +5,11 @@ export const metadata: Metadata = {
   title: "SQL Server Performance & Cost Optimisation | SQLOPTIMISE",
   description: "Slow SQL hurting user experience? SQLOPTIMISE delivers measurable improvements with expert tuning, health checks, and best-practices automated & routine.",
   keywords: ["SQL Server performance", "Azure SQL", "cost optimisation", "performance tuning"],
+  icons: {
+    icon: "/assets/brand/favicon.png",
+    shortcut: "/assets/brand/favicon.png",
+    apple: "/assets/brand/favicon.png",
+  },
   openGraph: {
     title: "SQL Server Performance & Cost Optimisation | SQLOPTIMISE",
     description: "Slow SQL hurting user experience? SQLOPTIMISE delivers measurable improvements with expert tuning, health checks, and best-practices automated & routine.",
