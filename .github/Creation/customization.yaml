@@ -13,9 +13,9 @@ brand:
   colors:
   primary: "#E407F0"
   secondary: "#FAB700"
-    accent: "#22C55E"
-    backgroundLight: "#FFFFFF"
-    backgroundDark: "#0B1220"
+  accent: "#22C55E"
+  backgroundLight: "#FFFFFF"
+  backgroundDark: "#0B1220"
   typography:
     headingFont: "Inter"
     bodyFont: "Inter"

@@ -18,8 +18,8 @@ brand:
   palette:
   primary: "#E407F0"
   secondary: "#FAB700"
-    accent: "#22C55E"
-    neutrals: []
+  accent: "#22C55E"
+  neutrals: []
     semantic:
       success: ""
       warning: ""
@@ -58,12 +58,11 @@ components:
   buttons:
     shape: "pill"
     size: "md"
-  emphasis: "outline"
-    corners: "md"
+  corners: "md"
   # Implementer note: translucent appearance with soft borders and subtle emphasis
   cards:
     style: "elevated"
-  hover: "lift"
+    hover: "lift"
     padding: "md"
   # Implementer notes: translucent with subtle border; light glow on hover
   forms:
@@ -73,9 +72,7 @@ components:
 
 sections:
   hero:
-  layout: "center"
-  media: "video"
-    ctaStyle: "dual"
+  ctaStyle: "dual"
   featureGrid:
     columns: 3
     iconStyle: "line"
@@ -102,10 +99,10 @@ priorities:
     notes: "Enterprise/credible look"
   - area: "landing-page"
     weight: 5
-  notes: "Fullscreen hero with dynamic animation; scroll-reveal sections; clear primary CTA"
+    notes: "Fullscreen hero with dynamic animation; scroll-reveal sections; clear primary CTA"
   - area: "blog"
     weight: 4
     notes: "Readable typography"
   - area: "embeds"
     weight: 3
-  notes: "Support 3rd-party bookings/analytics; bottom-of-page AI chat embed"
+    notes: "Support 3rd-party bookings/analytics; bottom-of-page AI chat embed"
