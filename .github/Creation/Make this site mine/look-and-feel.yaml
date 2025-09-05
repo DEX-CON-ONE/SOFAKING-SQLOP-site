@@ -18,8 +18,8 @@ brand:
   palette:
   primary: "#E407F0"
   secondary: "#FAB700"
-    accent: "#22C55E"
-    neutrals: []
+  accent: "#22C55E"
+  neutrals: []
     semantic:
       success: ""
       warning: ""
