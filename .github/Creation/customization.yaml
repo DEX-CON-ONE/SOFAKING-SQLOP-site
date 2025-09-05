@@ -1,0 +1,170 @@
+version: 1
+project:
+  name: "SQLOPTIMISE"
+  domain: "SQLOPTIMISE.COM"
+  environment: "development"
+
+brand:
+  # Assumption: using existing assets in /public/assets/brand;
+  # confirm or provide preferred logo/favicon files.
+  logo: "/assets/brand/Brand_Logo-stacked.png"
+  favicon: "/assets/brand/favicon.png"
+  darkMode: true  # default to system preference; toggle can override in UI
+  colors:
+    primary: "#0EA5E9"  # default; confirm brand color
+    secondary: "#1F2937"
+    accent: "#22C55E"
+    backgroundLight: "#FFFFFF"
+    backgroundDark: "#0B1220"
+  typography:
+    headingFont: "Inter"
+    bodyFont: "Inter"
+    googleFontsHref: "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+
+content:
+  hero:
+    tagline: "SQL Server Performance & Cost Optimisation: Made Simple"
+    headline: "Make SQL reliably faster and cheaper"
+    subheadline: "Measurable improvements with expert tuning, health checks, and best‑practice automation."
+    primaryCta:
+      label: "Schedule a Call"
+      href: "https://outlook.office.com/book/SQLOPTIMISE@NETORGFT9176567.onmicrosoft.com/"
+      kind: "link"  # options: link|mailto|calendly
+    secondaryCta:
+      label: "Read more"
+      href: "/blog"  # assumption; confirm target
+  differentiators:
+    - "Senior experts, not juniors"
+    - "Guaranteed measurable improvements"
+    - "Transparent fixed-fee engagements"
+
+services:
+  overview: "Brief statement about what you offer overall."
+  items:
+    - name: "Performance Tuning"
+      short: "Find and fix bottlenecks in SQL workloads."
+      details:
+        - "Query plan analysis and indexing strategy"
+        - "Parameter sniffing and cache optimization"
+        - "Wait stats and blocking diagnostics"
+      cta:
+        label: "Explore"
+        href: "/services/performance-tuning"
+    - name: "Health Check"
+      short: "Baseline health and prioritized remediation plan."
+      details:
+        - "Configuration audit and best practices"
+        - "Storage and memory optimization"
+        - "Backup, HA/DR review"
+      cta:
+        label: "Explore"
+        href: "/services/health-check"
+
+pages:
+  home:
+    enabled: true
+    sections: [hero, services, testimonials, cta]
+  about:
+    enabled: true
+    team: []
+  services:
+    enabled: true
+    detailPages: true
+  caseStudies:
+    enabled: false
+  blog:
+    enabled: true
+  faq:
+    enabled: true
+  pricing:
+    enabled: false
+  contact:
+    enabled: true
+
+navigation:
+  header:
+    - label: "Services"
+      href: "/services"
+    - label: "About"
+      href: "/about"
+    - label: "Blog"
+      href: "/blog"
+    - label: "Contact"
+      href: "/contact"
+  footer:
+    columns:
+      - title: "Company"
+        links:
+          - label: "About"
+            href: "/about"
+          - label: "Privacy"
+            href: "/privacy"
+      - title: "Resources"
+        links:
+          - label: "Blog"
+            href: "/blog"
+
+conversion:
+  primaryCta:
+    label: "Schedule a Call"
+    href: "https://outlook.office.com/book/SQLOPTIMISE@NETORGFT9176567.onmicrosoft.com/"
+  contact:
+    email: "info@sqloptimise.com"  # placeholder; confirm
+    phone: ""
+    address: ""
+  leadMagnet:
+    title: "SQL Tuning Checklist"
+    assetUrl: "https://example.com/checklist.pdf"
+
+integrations:
+  analytics:
+  provider: "posthog"  # options: ga4|plausible|posthog|none
+  ga4MeasurementId: ""
+  plausibleDomain: ""
+  posthogKey: "NEXT_PUBLIC_POSTHOG_KEY"  # env var NAME; set value in .env.local or hosting
+  posthogHost: "NEXT_PUBLIC_POSTHOG_HOST"  # env var NAME; set value in .env.local or hosting
+  crm:
+  provider: "hubspot"  # options: none|hubspot|mailchimp
+  apiKeyEnv: "HUBSPOT_ACCESS_TOKEN"  # confirm env var NAME; value not committed
+  forms:
+    handler: "none"  # options: formspree|smtp|none
+    formspreeId: ""
+  scheduling:
+    calendlyUrl: ""  # using Office 365 Bookings via primary CTA link
+
+seo:
+  titleTemplate: "%s | SQLOPTIMISE"
+  defaultTitle: "SQL Server Performance & Cost Optimisation | SQLOPTIMISE"
+  defaultDescription: "Slow SQL hurting user experience? SQLOPTIMISE delivers measurable improvements with expert tuning, health checks, and best-practices automated & routine."
+  keywords: ["SQL Server performance", "Azure SQL", "cost optimisation", "performance tuning"]
+  openGraphImage: "/assets/brand/OG_image.png"
+  twitterHandle: ""
+  sitemap:
+    include: ["/", "/about", "/services", "/blog", "/contact"]
+    exclude: []
+
+legal:
+  privacyPolicyUrl: "/privacy"
+  termsUrl: "/terms"
+  cookieBanner: false
+
+social:
+  linkedin: "https://www.linkedin.com/company/sqloptimise/"
+  github: "https://github.com/DEX-CON-ONE"
+  twitter: ""
+
+assets:
+  images:
+    - src: "/assets/brand/website_BG-static.png"
+      alt: "Background graphic"
+  clientLogos: []
+
+operations:
+  hosting: "vercel"
+  performanceTargets:
+    lighthouse:
+      performance: 90
+      accessibility: 90
+      bestPractices: 90
+      seo: 90
+  deadline: ""
