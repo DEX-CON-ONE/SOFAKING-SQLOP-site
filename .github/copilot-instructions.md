@@ -34,6 +34,12 @@ Project facts
 - Tailwind content paths include `app/`, `pages/`, and `components/`.
 - `next.config.mjs` is default; update only when necessary and document changes in PRs.
 
+Branching & PR policy
+- Base branch for work: `SQLOPTIMISE-site`.
+- Create short-lived feature branches from `SQLOPTIMISE-site` (e.g., `feat/hero-cta`, `chore/seo-metadata`).
+- Open PRs with base set to `SQLOPTIMISE-site` and a focused diff.
+- If you lack push rights, fork the repo and open the PR from your fork targeting `SQLOPTIMISE-site`.
+
 Implementation details and guardrails are described in `Agents.md`.
 
 Quality gates (baseline)
@@ -154,3 +160,4 @@ PR checklist
 - [ ] Analytics gated by env vars
 - [ ] Accessibility/motion respected
 - [ ] Lint/build pass and screenshots attached
+ - [ ] PR targets base branch `SQLOPTIMISE-site` and includes concise summary
