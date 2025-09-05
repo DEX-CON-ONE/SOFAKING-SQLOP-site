@@ -2,20 +2,20 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SQLOPTIMISE - SQL Performance Consulting & Database Optimization",
-  description: "Expert SQL optimization and database performance consulting. Boost your database performance by 10x with guaranteed measurable results from senior SQL experts.",
-  keywords: ["sql performance", "database tuning", "sql optimization", "query optimization", "database consulting", "sql server performance"],
+  title: "SQL Server Performance & Cost Optimisation | SQLOPTIMISE",
+  description: "Slow SQL hurting user experience? SQLOPTIMISE delivers measurable improvements with expert tuning, health checks, and best-practices automated & routine.",
+  keywords: ["SQL Server performance", "Azure SQL", "cost optimisation", "performance tuning"],
   openGraph: {
-    title: "SQLOPTIMISE - SQL Performance Consulting",
-    description: "Expert SQL optimization and database performance consulting. Boost your database performance by 10x with guaranteed measurable results from senior SQL experts.",
-    url: "https://sqloptimise.com",
+    title: "SQL Server Performance & Cost Optimisation | SQLOPTIMISE",
+    description: "Slow SQL hurting user experience? SQLOPTIMISE delivers measurable improvements with expert tuning, health checks, and best-practices automated & routine.",
+    url: "https://SQLOPTIMISE.COM",
     siteName: "SQLOPTIMISE",
     images: [
       {
-        url: "/og-image.png",
+        url: "/assets/brand/OG_image.png",
         width: 1200,
         height: 630,
-        alt: "SQLOPTIMISE - SQL Performance Consulting",
+        alt: "SQLOPTIMISE - SQL Server Performance & Cost Optimisation",
       },
     ],
     locale: "en_US",
@@ -23,10 +23,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SQLOPTIMISE - SQL Performance Consulting",
-    description: "Expert SQL optimization and database performance consulting. Boost your database performance by 10x with guaranteed measurable results from senior SQL experts.",
-    site: "@sqloptimise",
-    images: ["/og-image.png"],
+    title: "SQL Server Performance & Cost Optimisation | SQLOPTIMISE",
+    description: "Slow SQL hurting user experience? SQLOPTIMISE delivers measurable improvements with expert tuning, health checks, and best-practices automated & routine.",
+    images: ["/assets/brand/OG_image.png"],
   },
 };
 
