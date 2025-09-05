@@ -1,0 +1,97 @@
+# TEMPLATE — Look & Feel (design preferences)
+# Usage: Copy this file to `/.github/Creation/Make this site mine/look-and-feel.yaml` and fill values.
+# Purpose: normalized design tokens and preferences for reliable consumption by builder agents.
+# Store brand/style choices separate from business content.
+
+version: 1
+meta:
+  capturedAt: ""      # ISO date, e.g., 2025-09-05
+  capturedBy: ""      # name or agent id
+  sourceFiles: []      # list of provided docs/links/images used
+
+inspiration:
+  sites: []            # e.g., [{ url: "https://example.com", whatWeLike: ["nav", "hero", "color"] }]
+  mood: []             # e.g., [{ image: "/public/brand/mood/1.png", tags: ["clean", "enterprise"] }]
+
+brand:
+  palette:
+    primary: "#0EA5E9"    # TODO: confirm
+    secondary: "#1F2937"  # TODO: confirm
+    accent: "#22C55E"     # TODO: confirm
+    neutrals: []           # optional list of neutral hexes
+    semantic:
+      success: ""         # optional
+      warning: ""
+      error: ""
+      info: ""
+  typography:
+    headingFont: "Inter"  # TODO: confirm
+    bodyFont: "Inter"     # TODO: confirm
+    scale: {}              # optional map of h1..h6 sizes/weights/leading
+    googleFontsHref: ""   # optional <link> href
+  imagery:
+    style: []              # e.g., ["photos", "illustrations", "abstract"]
+    treatment: []          # e.g., ["duotone", "monochrome", "full-color"]
+    people: ""            # e.g., "show" | "avoid"
+
+layout:
+  container: "standard"   # wide | standard | narrow
+  maxWidthPx: null         # optional explicit max width
+  grid: "tailwind-default"# 12-col | tailwind-default
+  gutter: "md"            # sm | md | lg
+  spacingScaleBase: 4      # base unit in px (2|4|8|12|16)
+  radius: "md"            # none | sm | md | lg | xl
+  shadows: "soft"         # none | soft | elevated
+  borders: "regular"      # none | hairline | regular
+  motion:
+    level: "subtle"       # none | subtle | standard | expressive
+    respectsReducedMotion: true
+
+navigation:
+  headerStyle: "simple"   # simple | centered | split | mega
+  sticky: "on-scroll-up"  # never | on-scroll-up | always
+  ctaPresence: "primary"  # none | primary
+  footerStyle: "columns"  # columns | minimal | legal-focused
+
+components:
+  buttons:
+    shape: "pill"         # pill | rounded | square
+    size: "md"            # sm | md | lg
+    emphasis: "solid"     # solid | outline | ghost
+    corners: "md"         # sm | md | lg
+  cards:
+    style: "elevated"     # flat | elevated | bordered
+    hover: "lift"         # none | lift | shadow
+    padding: "md"         # sm | md | lg
+  forms:
+    labelStyle: "stacked" # floating | stacked | inline
+    fieldShape: "rounded" # rounded | square
+    validationStyle: "subtle" # subtle | explicit
+
+sections:
+  hero:
+    layout: "split"       # left | center | split
+    media: "image"        # none | image | illustration | video
+    ctaStyle: "dual"      # primary | dual
+  featureGrid:
+    columns: 3             # 2 | 3 | 4
+    iconStyle: "line"     # emoji | line | solid | none
+  testimonials:
+    style: "grid"         # carousel | grid | single-quote
+    avatar: "show"        # show | hide
+  caseStudies:
+    cardStyle: "image-top"# image-top | image-left | text-only
+
+accessibility:
+  contrast: "AA"          # AA | AAA
+  linkUnderlines: "on-hover" # always | on-hover
+  focusVisible: true
+  prefersColorScheme: "system" # system | light | dark
+
+assets:
+  logo: "/public/brand/logo.svg"  # TODO: provide
+  ogImage: "/public/brand/og.png" # TODO: provide
+  imageGuidelines: ""             # optional guidance text
+
+priorities: []
+# e.g., [{ area: "brand", weight: 5, notes: "Keep it enterprise/credible" }]

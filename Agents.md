@@ -5,9 +5,11 @@ Purpose: help automated or human agents safely modify this Next.js 14 template (
 ## Customization: “Make this site mine”
 To keep this playbook concise, the full customization workflow, modes, and sequential Q&A are documented here:
 
-- `.github/Creation/Make this site mine/instructions.md` — step-by-step agent workflow
+- `.github/Creation/Make this site mine/customisation-instructions.md` — step-by-step agent workflow
 - `/.github/Creation/customization-template.yaml` — input schema
 - `/.github/Creation/customization.yaml` — output to produce
+- `/.github/Make this site mine/look-and-feel-template.yaml` — template for design tokens
+- `/.github/Creation/Make this site mine/look-and-feel.yaml` — filled output (consumed by builder agents)
 
 Minimum agent contract
 - Use the above instructions to collect inputs and generate `customization.yaml`.
@@ -76,4 +78,4 @@ Questioning flow tips
 - Forgetting Tailwind `content` updates after adding new folders like `features/`.
 
 ---
-For deployment specifics, see `Instructions.md` and `README.md`.
+For deployment specifics, see `README.md`.
