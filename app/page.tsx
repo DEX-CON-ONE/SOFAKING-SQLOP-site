@@ -4,8 +4,8 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="min-h-screen">
-      {/* Centered Header */}
-      <header className="bg-white/90 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+      {/* Centered Header - More translucent to show background */}
+      <header className="bg-white/20 backdrop-blur-md shadow-sm sticky top-0 z-50">
         <div className="container-max">
           <div className="flex flex-col items-center justify-center py-6 space-y-4 md:flex-row md:justify-between md:space-y-0">
             {/* Logo - Centered on mobile, left on desktop */}
@@ -21,10 +21,10 @@ export default function Home() {
             
             {/* Navigation - Centered */}
             <nav className="flex space-x-8">
-              <Link href="/services" className="text-secondary hover:text-primary transition-colors font-medium">Services</Link>
-              <Link href="/about" className="text-secondary hover:text-primary transition-colors font-medium">About</Link>
-              <Link href="/blog" className="text-secondary hover:text-primary transition-colors font-medium">Blog</Link>
-              <Link href="/contact" className="text-secondary hover:text-primary transition-colors font-medium">Contact</Link>
+              <Link href="/services" className="text-white hover:text-secondary transition-colors font-medium drop-shadow-md">Services</Link>
+              <Link href="/about" className="text-white hover:text-secondary transition-colors font-medium drop-shadow-md">About</Link>
+              <Link href="/blog" className="text-white hover:text-secondary transition-colors font-medium drop-shadow-md">Blog</Link>
+              <Link href="/contact" className="text-white hover:text-secondary transition-colors font-medium drop-shadow-md">Contact</Link>
             </nav>
             
             {/* CTA Button */}
@@ -48,12 +48,12 @@ export default function Home() {
         
         <div className="hero-content container-max text-center px-4 z-10">
           <div className="scroll-reveal">
-            <p className="text-pink-200 text-lg mb-6 font-medium">SQL Server Performance & Cost Optimisation: Made Simple</p>
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+            <p className="text-pink-200 text-lg mb-6 font-medium drop-shadow-lg">SQL Server Performance & Cost Optimisation: Made Simple</p>
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight drop-shadow-lg">
               Make SQL reliably{" "}
-              <span className="text-accent float-animation">faster and cheaper</span>
+              <span className="text-accent float-animation drop-shadow-lg">faster and cheaper</span>
             </h1>
-            <p className="text-xl text-pink-100 mb-12 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-pink-100 mb-12 max-w-4xl mx-auto leading-relaxed drop-shadow-md">
               Measurable improvements with expert tuning, health checks, and best‑practice automation.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -80,17 +80,17 @@ export default function Home() {
 
       {/* Content with Static Background */}
       <div className="content-background">
-        {/* Differentiators - Infographic Style */}
-        <section className="bg-white/80 backdrop-blur-sm section-padding">
+        {/* Differentiators - Infographic Style with Translucent Background */}
+        <section className="bg-white/15 backdrop-blur-sm section-padding">
           <div className="container-max">
             <div className="scroll-reveal text-center mb-16">
-              <h2 className="text-4xl font-bold text-secondary mb-4">Why Choose SQLOPTIMISE</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl font-bold text-white mb-4 drop-shadow-lg">Why Choose SQLOPTIMISE</h2>
+              <p className="text-xl text-white/90 max-w-3xl mx-auto drop-shadow-md">
                 Three key differentiators that set us apart from the competition
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="card-elevated p-8 text-center bg-white/90">
+              <div className="card-elevated p-8 text-center bg-white/85 backdrop-blur-sm">
                 <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -100,7 +100,7 @@ export default function Home() {
                 <p className="text-gray-600 leading-relaxed">Experienced SQL professionals with proven track records delivering enterprise-grade solutions</p>
               </div>
               
-              <div className="card-elevated p-8 text-center bg-white/90">
+              <div className="card-elevated p-8 text-center bg-white/85 backdrop-blur-sm">
                 <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -110,7 +110,7 @@ export default function Home() {
                 <p className="text-gray-600 leading-relaxed">Proven performance gains you can measure and trust, backed by our performance guarantee</p>
               </div>
               
-              <div className="card-elevated p-8 text-center bg-white/90">
+              <div className="card-elevated p-8 text-center bg-white/85 backdrop-blur-sm">
                 <div className="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
@@ -123,19 +123,19 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Services Section - Infographic Style */}
-        <section className="bg-white/60 backdrop-blur-sm section-padding">
+        {/* Services Section - Infographic Style with Translucent Background */}
+        <section className="bg-white/10 backdrop-blur-sm section-padding">
           <div className="container-max">
             <div className="scroll-reveal text-center mb-16">
-              <h2 className="text-4xl font-bold text-secondary mb-4">Our Services</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl font-bold text-white mb-4 drop-shadow-lg">Our Services</h2>
+              <p className="text-xl text-white/90 max-w-3xl mx-auto drop-shadow-md">
                 Expert SQL optimization services tailored to your enterprise needs
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Performance Tuning */}
-              <div className="card-elevated p-10 group bg-white/90">
+              <div className="card-elevated p-10 group bg-white/85 backdrop-blur-sm">
                 <div className="w-16 h-16 bg-gradient-to-r from-primary to-pink-500 rounded-xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -172,7 +172,7 @@ export default function Home() {
               </div>
 
               {/* Health Check */}
-              <div className="card-elevated p-10 group bg-white/90">
+              <div className="card-elevated p-10 group bg-white/85 backdrop-blur-sm">
                 <div className="w-16 h-16 bg-gradient-to-r from-accent to-green-400 rounded-xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -211,12 +211,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Enhanced CTA Section */}
-        <section className="bg-gradient-to-r from-primary/90 to-secondary/90 backdrop-blur-sm text-white section-padding">
+        {/* Enhanced CTA Section - Translucent to show background */}
+        <section className="bg-gradient-to-r from-primary/60 to-secondary/50 backdrop-blur-sm text-white section-padding">
           <div className="container-max text-center">
             <div className="scroll-reveal">
-              <h2 className="text-5xl font-bold mb-6">Ready to Optimize Your Database?</h2>
-              <p className="text-xl text-pink-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+              <h2 className="text-5xl font-bold mb-6 drop-shadow-lg">Ready to Optimize Your Database?</h2>
+              <p className="text-xl text-white/95 mb-10 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
                 Get your free assessment and discover how we can boost your database performance with guaranteed results.
               </p>
               <a href="https://outlook.office.com/book/SQLOPTIMISE@NETORGFT9176567.onmicrosoft.com/" className="btn-secondary bg-white text-primary hover:bg-gray-100 text-lg inline-flex items-center">
@@ -229,12 +229,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Simple AI Chat Component - Bottom of page */}
-        <section className="bg-white/20 backdrop-blur-sm text-white py-12">
+        {/* Simple AI Chat Component - Bottom of page with better transparency */}
+        <section className="bg-white/10 backdrop-blur-sm text-white py-12">
           <div className="container-max">
             <div className="ai-chat-simple max-w-4xl mx-auto text-center">
-              <h3 className="text-2xl font-bold mb-4 text-white">Need Quick Help?</h3>
-              <p className="text-white/90 mb-6">Ask our AI assistant about SQL performance optimization</p>
+              <h3 className="text-2xl font-bold mb-4 text-white drop-shadow-md">Need Quick Help?</h3>
+              <p className="text-white/90 mb-6 drop-shadow-sm">Ask our AI assistant about SQL performance optimization</p>
               
               <div className="flex items-center gap-4 max-w-2xl mx-auto">
                 <input 

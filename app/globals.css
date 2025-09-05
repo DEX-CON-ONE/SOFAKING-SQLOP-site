@@ -119,9 +119,9 @@ body {
     min-height: 100vh;
   }
   
-  /* Dynamic overlay for hero */
+  /* Dynamic overlay for hero - much more translucent to show background image */
   .hero-overlay {
-    background: linear-gradient(135deg, rgba(228, 7, 240, 0.9) 0%, rgba(250, 183, 0, 0.8) 100%);
+    background: linear-gradient(135deg, rgba(228, 7, 240, 0.3) 0%, rgba(250, 183, 0, 0.2) 100%);
     position: absolute;
     inset: 0;
     z-index: 1;
@@ -132,9 +132,10 @@ body {
     z-index: 2;
   }
   
-  /* "Now that's refreshing" text box */
+  /* "Now that's refreshing" text box - enhanced for better visibility */
   .refreshing-box {
-    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-lg px-6 py-4 text-white font-semibold text-lg shadow-xl;
+    @apply bg-white/30 backdrop-blur-md border border-white/40 rounded-lg px-6 py-4 text-white font-semibold text-lg shadow-xl;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   }
   
   /* Scroll-down indicator */
@@ -155,9 +156,9 @@ body {
     }
   }
   
-  /* Simple AI chat styling */
+  /* Simple AI chat styling - more translucent */
   .ai-chat-simple {
-    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6;
+    @apply bg-white/20 backdrop-blur-md border border-white/30 rounded-lg p-6;
   }
   
   .chat-input {
