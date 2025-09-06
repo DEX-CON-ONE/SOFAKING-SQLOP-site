@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "../components/Navbar";
+import ScrollReveal from "../components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "SQL Server Performance & Cost Optimisation | SQLOPTIMISE",
@@ -44,7 +46,11 @@ export default function RootLayout({
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
       </head>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <Navbar />
+        <ScrollReveal />
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
