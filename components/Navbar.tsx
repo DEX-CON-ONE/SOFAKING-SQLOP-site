@@ -33,7 +33,7 @@ export default function Navbar() {
     <header className="bg-white/10 backdrop-blur-md shadow-sm sticky top-0 z-50">
       <div className="container-max">
         <div className="flex items-center justify-between py-4">
-      <Link href="/" className="flex items-center relative logo-sheen">
+  <Link href="/" className="flex items-center relative logo-sheen ml-3 md:ml-0">
             <Image
               src="/assets/brand/Brand_Logo-stacked.png"
               alt="SQLOPTIMISE Logo"

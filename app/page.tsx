@@ -26,7 +26,7 @@ export default function Home() {
             {/* Tagline: will reveal third (slower) */}
             <p className="scroll-reveal sr-anim-fade sr-delay-3000 text-pink-200 text-base sm:text-lg mb-4 sm:mb-6 font-medium drop-shadow-lg">SQL Server Performance & Cost Optimisation: Made Simple</p>
             {/* Inline "Now that's refreshing" label across all breakpoints: will reveal last (slowest) */}
-            <p className="scroll-reveal sr-anim-fade sr-delay-4300 text-white/90 text-sm md:text-base mb-4">Now that's refreshing</p>
+            <p className="scroll-reveal sr-anim-breathe sr-delay-4300 text-white/90 text-sm md:text-base mb-4">Now that's refreshing</p>
             {/* Headline: reveals first with pop */}
             <h1 className="scroll-reveal sr-anim-pop sr-delay-0 text-5xl md:text-7xl font-bold mb-8 leading-tight drop-shadow-lg">
               Make SQL reliably{" "}
@@ -91,7 +91,7 @@ export default function Home() {
               <p className="text-xl text-white/95 mb-10 max-w-3xl mx-auto leading-relaxed drop-shadow-md text-shadow">
                 Get your free assessment and discover how we can boost your database performance with guaranteed results.
               </p>
-              <a href="https://outlook.office.com/book/SQLOPTIMISE@NETORGFT9176567.onmicrosoft.com/" className="btn-secondary bg-white text-primary hover:bg-gray-100 text-lg inline-flex items-center shadow-xl">
+              <a href="https://outlook.office.com/book/SQLOPTIMISE@NETORGFT9176567.onmicrosoft.com/" className="btn-primary text-lg inline-flex items-center shadow-xl">
                 Schedule Free Assessment
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 6v5l3 3 3-3v-5M3 12h18" />
