@@ -156,22 +156,26 @@ body {
     @apply max-w-7xl mx-auto;
   }
   
-  /* Dynamic hero background - starts with dynamic image */
+  /* Dynamic hero background container with bottom blend mask */
   .hero-fullscreen {
-    background-image: url('/assets/brand/website_BG-dynamic.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
     position: relative;
-    transition: background-image 0.8s ease-in-out;
+    /* Longer blend: start fade earlier for a smoother transition */
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 62%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 62%, rgba(0,0,0,0) 100%);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+
+  /* Background video styling */
+  .hero-video { object-fit: cover; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-video { display: none; }
   }
   
   /* On small screens, avoid fixed backgrounds which can cause jank/overlap */
-  @media (max-width: 767px) {
-    .hero-fullscreen {
-      background-attachment: scroll;
-    }
-  }
+  /* No special handling needed for background-attachment when using video */
   
   /* Static background applied to body for continuous visibility */
   body {

@@ -6,6 +6,19 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Fullscreen Hero Section with Dynamic Background */}
       <section className="hero-fullscreen min-h-screen flex flex-col items-center justify-center text-white relative">
+        {/* Background video */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover z-0 hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/assets/brand/website_BG-dynamic.png"
+          aria-hidden="true"
+        >
+          <source src="/assets/brand/Hero-BG-vid.mp4" type="video/mp4" />
+        </video>
         <div className="hero-overlay"></div>
         
         <div className="hero-content container-max text-center px-4 z-10">
