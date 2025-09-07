@@ -10,7 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#E407F0", // Magenta - SQLOPTIMISE brand primary
+  primary: "#0078D4", // Blue (aligned to MS blue) - SQLOPTIMISE brand primary
+  primaryDark: "#006CBE", // Darker blue for button gradients
         secondary: "#FAB700", // Gold/Yellow - SQLOPTIMISE brand secondary  
         accent: "#22C55E", // Green for success/performance gains
         background: {

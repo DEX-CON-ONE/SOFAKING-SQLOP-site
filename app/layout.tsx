@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import ScrollReveal from "../components/ScrollReveal";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sqloptimise.com"),
   title: "SQL Server Performance & Cost Optimisation | SQLOPTIMISE",
   description: "Slow SQL hurting user experience? SQLOPTIMISE delivers measurable improvements with expert tuning, health checks, and best-practices automated & routine.",
   keywords: ["SQL Server performance", "Azure SQL", "cost optimisation", "performance tuning"],
@@ -45,6 +46,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+        <noscript>
+          <style>{`.scroll-reveal{opacity:1 !important; transform:none !important}`}</style>
+        </noscript>
       </head>
       <body className="font-sans">
         <Navbar />

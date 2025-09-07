@@ -11,18 +11,14 @@ export default function Navbar() {
 
   const Links = (
     <>
+      <Link href="/" className={linkClass} onClick={() => setOpen(false)}>
+        Home
+      </Link>
       <Link href="/services" className={linkClass} onClick={() => setOpen(false)}>
         Services
       </Link>
-      <Link
-        href="/case-studies"
-        className={linkClass}
-        onClick={() => setOpen(false)}
-      >
-        Case Studies
-      </Link>
-      <Link href="/pricing" className={linkClass} onClick={() => setOpen(false)}>
-        Pricing
+      <Link href="/blog" className={linkClass} onClick={() => setOpen(false)}>
+        Blog
       </Link>
       <Link href="/about" className={linkClass} onClick={() => setOpen(false)}>
         About
@@ -37,13 +33,13 @@ export default function Navbar() {
     <header className="bg-white/10 backdrop-blur-md shadow-sm sticky top-0 z-50">
       <div className="container-max">
         <div className="flex items-center justify-between py-4">
-          <Link href="/" className="flex items-center">
+      <Link href="/" className="flex items-center relative logo-sheen">
             <Image
               src="/assets/brand/Brand_Logo-stacked.png"
               alt="SQLOPTIMISE Logo"
               width={120}
               height={60}
-              className="h-12 w-auto"
+  className="h-12 w-auto transform scale-[1.18] md:scale-[1.25] relative z-10 logo-edge-glow"
             />
           </Link>
 

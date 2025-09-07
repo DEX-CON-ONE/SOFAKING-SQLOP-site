@@ -27,6 +27,12 @@ body {
   }
 }
 
+/* Scroll-reveal: hidden by default, then revealed with animation */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
 /* Scroll-reveal animations with reduced motion support */
 @keyframes fadeInUp {
   from {
@@ -50,7 +56,38 @@ body {
 
 
 .scroll-reveal.revealed {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: var(--sr-anim, fadeInUp) var(--sr-dur, 1s) var(--sr-ease, cubic-bezier(0.2, 0.7, 0.2, 1)) var(--sr-delay, 0ms) forwards;
+}
+
+/* Additional keyframes for a subtle pop-in of the main headline */
+@keyframes popInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0) scale(1.01);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Utilities for sequencing ScrollReveal animations */
+@layer utilities {
+  .sr-anim-pop { --sr-anim: popInUp; --sr-dur: 1.1s; --sr-ease: cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .sr-anim-fade { --sr-anim: fadeInUp; --sr-dur: 1s; --sr-ease: cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .sr-delay-0 { --sr-delay: 0ms; }
+  .sr-delay-200 { --sr-delay: 200ms; }
+  .sr-delay-450 { --sr-delay: 450ms; }
+  .sr-delay-700 { --sr-delay: 700ms; }
+  /* Longer, more readable staggers */
+  .sr-delay-1200 { --sr-delay: 1200ms; }
+  .sr-delay-1400 { --sr-delay: 1400ms; }
+  .sr-delay-3000 { --sr-delay: 3000ms; }
+  .sr-delay-4300 { --sr-delay: 4300ms; }
 }
 
 .float-animation {
@@ -59,6 +96,10 @@ body {
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
   .scroll-reveal.revealed {
     animation: none;
   }
@@ -75,11 +116,31 @@ body {
 @layer components {
   /* Pill-shaped buttons as per specification */
   .btn-primary {
-    @apply bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  @apply relative inline-flex items-center justify-center text-white px-7 py-3 rounded-full font-semibold transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 bg-gradient-to-b from-primary to-primaryDark;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+  }
+  .btn-primary:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active {
+    transform: translateY(0);
+    filter: brightness(0.97);
   }
   
   .btn-secondary {
-    @apply bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+    @apply inline-flex items-center justify-center px-7 py-3 rounded-full font-semibold transition-all duration-300 border text-white/90 hover:text-white hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50;
+    border-color: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(6px);
+  }
+  .btn-secondary:hover {
+    border-color: rgba(255,255,255,0.65);
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-1px);
+  }
+  .btn-secondary:active {
+    transform: translateY(0);
   }
   
   /* Elevated cards with lift hover effect */
@@ -105,13 +166,26 @@ body {
     transition: background-image 0.8s ease-in-out;
   }
   
+  /* On small screens, avoid fixed backgrounds which can cause jank/overlap */
+  @media (max-width: 767px) {
+    .hero-fullscreen {
+      background-attachment: scroll;
+    }
+  }
+  
   /* Static background applied to body for continuous visibility */
   body {
     background-image: url('/assets/brand/website_BG-static.png');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+  background-attachment: scroll;
     background-repeat: no-repeat;
+  }
+  
+  @media (max-width: 767px) {
+    body {
+      background-attachment: scroll;
+    }
   }
   
   /* Content sections with minimal opacity to show background */
@@ -127,6 +201,10 @@ body {
     position: absolute;
     inset: 0;
     z-index: 1;
+    pointer-events: none;
+  }
+  @media (max-width: 767px) {
+    .hero-overlay { background: linear-gradient(135deg, rgba(228, 7, 240, 0.22) 0%, rgba(250, 183, 0, 0.12) 100%); }
   }
   
   .hero-content {
@@ -138,6 +216,18 @@ body {
   .refreshing-box {
     @apply bg-white/30 backdrop-blur-md border border-white/40 rounded-lg px-6 py-4 text-white font-semibold text-lg shadow-xl;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Mobile: keep it simple, no boxy background if shown */
+  @media (max-width: 767px) {
+    .refreshing-box {
+      background: transparent;
+      backdrop-filter: none;
+      border: 0;
+      box-shadow: none;
+      padding: 0.25rem 0.5rem;
+      text-shadow: none;
+    }
   }
   
   /* Scroll-down indicator */
@@ -178,5 +268,66 @@ body {
   
   .text-shadow-lg {
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  /* (Glow removed by request) */
+
+  /* Animated sheen sweep across the logo */
+  .logo-sheen::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -40%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(105deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-20deg);
+    animation: logoSheen 4.5s ease-in-out infinite;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  /* Interactive sheen: faster single pass on hover/focus */
+  .logo-sheen:hover::after,
+  .logo-sheen:focus-visible::after {
+    animation: logoSheenHover 1.6s ease-in-out 1;
+    opacity: 1;
+  }
+
+  @keyframes logoSheen {
+    0% { left: -40%; opacity: 0; }
+    10% { left: 10%; opacity: 1; }
+    20% { left: 60%; opacity: 0; }
+    100% { left: 60%; opacity: 0; }
+  }
+
+  /* Quicker, full sweep for interactive hover */
+  @keyframes logoSheenHover {
+    0% { left: -50%; opacity: 0; }
+    15% { left: 0%; opacity: 1; }
+    55% { left: 80%; opacity: 0.6; }
+    100% { left: 110%; opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-sheen::after { animation: none; opacity: 0; }
+    .logo-sheen:hover::after,
+    .logo-sheen:focus-visible::after { animation: none; opacity: 0; }
+  }
+
+  /* Subtle edge-only white glow using alpha-aware drop-shadow */
+  .logo-edge-glow {
+    filter:
+      drop-shadow(0 0 3px rgba(255, 255, 255, 0.55))
+      drop-shadow(0 0 7px rgba(255, 255, 255, 0.25));
+    transition: filter 200ms ease;
+  }
+
+  /* Intensify edge glow on hover/focus of the wrapper link */
+  .logo-sheen:hover .logo-edge-glow,
+  .logo-sheen:focus-visible .logo-edge-glow {
+    filter:
+      drop-shadow(0 0 4px rgba(255, 255, 255, 0.75))
+      drop-shadow(0 0 10px rgba(255, 255, 255, 0.45));
   }
 }

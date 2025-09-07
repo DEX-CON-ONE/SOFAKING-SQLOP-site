@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function ScrollReveal() {
+  const pathname = usePathname();
   useEffect(() => {
     const elements = document.querySelectorAll<HTMLElement>(".scroll-reveal");
     const observer = new IntersectionObserver(
@@ -20,11 +22,13 @@ export default function ScrollReveal() {
       { threshold: 0.1 }
     );
     elements.forEach((el) => {
-      el.style.opacity = "0";
-      el.style.transform = "translateY(30px)";
-      observer.observe(el);
+      if (!el.classList.contains("revealed")) {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(30px)";
+        observer.observe(el);
+      }
     });
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
   return null;
 }
