@@ -114,8 +114,12 @@ export default function ChatWidget() {
           return copy;
         });
       }
-    } catch (err: any) {
-      setError(err?.message || "Failed to send message");
+    } catch (err: unknown) {
+      let errorMsg = "Failed to send message";
+      if (err && typeof err === "object" && "message" in err && typeof (err as any).message === "string") {
+        errorMsg = (err as { message: string }).message;
+      }
+      setError(errorMsg);
     } finally {
       setLoading(false);
     }
