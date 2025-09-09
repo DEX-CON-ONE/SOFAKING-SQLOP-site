@@ -1,5 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const ChatWidget = dynamic(() => import("../components/ChatWidget"), { ssr: false });
 
 export default function Home() {
   return (
@@ -60,26 +63,10 @@ export default function Home() {
 
       {/* Content with Static Background */}
       <div className="content-background">
-        {/* Simple AI Chat Component - Transparent to show background */}
+        {/* AI Chat Component */}
         <section className="text-white py-12">
           <div className="container-max">
-            <div className="ai-chat-simple max-w-4xl mx-auto text-center">
-              <h3 className="text-2xl font-bold mb-4 text-white drop-shadow-md text-shadow">Need Quick Help?</h3>
-              <p className="text-white/95 mb-6 drop-shadow-sm text-shadow">Ask our AI assistant about SQL performance optimization</p>
-              
-              <div className="flex items-center gap-4 max-w-2xl mx-auto">
-                <input 
-                  type="text" 
-                  placeholder="...How can we help?" 
-                  className="chat-input"
-                />
-                <button className="chat-send-btn shadow-lg">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                  </svg>
-                </button>
-              </div>
-            </div>
+            <ChatWidget />
           </div>
         </section>
 
