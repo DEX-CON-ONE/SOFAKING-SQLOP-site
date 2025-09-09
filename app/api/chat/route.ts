@@ -75,9 +75,15 @@ export async function POST(req: NextRequest) {
         ...corsHeaders(req.headers.get("origin")),
       },
     });
-  } catch (err: any) {
+  } catch (err: unknown) {
+    let message: string;
+    if (typeof err === "object" && err !== null && "message" in err && typeof (err as any).message === "string") {
+      message = (err as { message: string }).message;
+    } else {
+      message = String(err);
+    }
     return new Response(
-      JSON.stringify({ error: "Proxy error", detail: String(err?.message || err) }),
+      JSON.stringify({ error: "Proxy error", detail: message }),
       { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders(req.headers.get("origin")) } }
     );
   }
