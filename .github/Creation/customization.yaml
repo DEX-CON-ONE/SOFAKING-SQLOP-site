@@ -93,7 +93,7 @@ pages:
   caseStudies:
     enabled: true
   blog:
-    enabled: false
+    enabled: true
   faq:
     enabled: true
   pricing:

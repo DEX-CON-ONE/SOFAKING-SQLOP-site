@@ -1,37 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
+import { getAllPosts } from "@/lib/blog";
 
 export default function BlogPage() {
-  // Placeholder blog posts
-  const posts = [
-    {
-      id: 1,
-      title: "10 Essential SQL Server Performance Tuning Tips",
-      excerpt: "Discover the most effective techniques for optimizing SQL Server performance and reducing query response times.",
-      date: "2024-01-15",
-      category: "Performance Tuning",
-      readTime: "8 min read",
-      slug: "sql-server-performance-tuning-tips"
-    },
-    {
-      id: 2,
-      title: "Common Database Health Check Issues and Solutions",
-      excerpt: "Learn about the most frequent problems uncovered during database health checks and how to resolve them.",
-      date: "2024-01-10", 
-      category: "Health Check",
-      readTime: "12 min read",
-      slug: "database-health-check-issues"
-    },
-    {
-      id: 3,
-      title: "Index Optimization Strategies for Large Databases",
-      excerpt: "Advanced indexing strategies to improve query performance in large-scale database environments.",
-      date: "2024-01-05",
-      category: "Optimization",
-      readTime: "15 min read",
-      slug: "index-optimization-strategies"
-    }
-  ];
+  const posts = getAllPosts();
 
   return (
     <div className="min-h-screen">
@@ -50,66 +22,88 @@ export default function BlogPage() {
       {/* Blog Posts Grid */}
       <section className="section-padding">
         <div className="container-max">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post) => (
-              <article key={post.id} className="card-elevated p-8 group">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm font-semibold text-primary bg-pink-50 px-3 py-1 rounded-full">
-                    {post.category}
-                  </span>
-                  <span className="text-sm text-gray-500">{post.readTime}</span>
-                </div>
-                
-                <h2 className="text-2xl font-bold mb-4 text-gray-900 group-hover:text-primary transition-colors">
-                  <Link href={`/blog/${post.slug}`}>
-                    {post.title}
-                  </Link>
-                </h2>
-                
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {post.excerpt}
-                </p>
-                
-                <div className="flex items-center justify-between">
-                  <time className="text-sm text-gray-500">
-                    {new Date(post.date).toLocaleDateString('en-US', { 
-                      year: 'numeric', 
-                      month: 'long', 
-                      day: 'numeric' 
-                    })}
-                  </time>
+          {posts.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {posts.map((post) => (
+                <article key={post.slug} className="card-elevated p-8 group">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-sm font-semibold text-primary bg-pink-50 px-3 py-1 rounded-full">
+                      {post.category}
+                    </span>
+                    <span className="text-sm text-gray-500">{post.readTime}</span>
+                  </div>
                   
-                  <Link 
-                    href={`/blog/${post.slug}`}
-                    className="inline-flex items-center text-primary font-semibold hover:text-opacity-80 transition-colors"
-                  >
-                    Read More
-                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
-          
-          {/* Coming Soon Message */}
-          <div className="text-center mt-16">
-            <div className="card-elevated p-12 max-w-2xl mx-auto">
-              <div className="w-20 h-20 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">More Articles Coming Soon</h3>
-              <p className="text-gray-600 mb-6">
-                We're working on more in-depth articles about SQL Server optimization, performance tuning strategies, and database best practices.
-              </p>
-              <a href="https://outlook.office.com/book/SQLOPTIMISE@NETORGFT9176567.onmicrosoft.com/" className="btn-primary">
-                Get Personalized Advice
-              </a>
+                  <h2 className="text-2xl font-bold mb-4 text-gray-900 group-hover:text-primary transition-colors">
+                    <Link href={`/blog/${post.slug}`}>
+                      {post.title}
+                    </Link>
+                  </h2>
+                  
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {post.excerpt}
+                  </p>
+                  
+                  <div className="flex items-center justify-between">
+                    <time className="text-sm text-gray-500">
+                      {new Date(post.date).toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                      })}
+                    </time>
+                    
+                    <Link 
+                      href={`/blog/${post.slug}`}
+                      className="inline-flex items-center text-primary font-semibold hover:text-opacity-80 transition-colors"
+                    >
+                      Read More
+                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </Link>
+                  </div>
+                </article>
+              ))}
             </div>
-          </div>
+          ) : (
+            /* Fallback if no posts found */
+            <div className="text-center">
+              <div className="card-elevated p-12 max-w-2xl mx-auto">
+                <div className="w-20 h-20 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">Blog Posts Coming Soon</h3>
+                <p className="text-gray-600 mb-6">
+                  We're working on in-depth articles about SQL Server optimization, performance tuning strategies, and database best practices.
+                </p>
+                <a href="https://outlook.office.com/book/SQLOPTIMISE@NETORGFT9176567.onmicrosoft.com/" className="btn-primary">
+                  Get Personalized Advice
+                </a>
+              </div>
+            </div>
+          )}
+          
+          {/* Coming Soon Message - Only show if we have posts */}
+          {posts.length > 0 && (
+            <div className="text-center mt-16">
+              <div className="card-elevated p-12 max-w-2xl mx-auto">
+                <div className="w-20 h-20 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">More Articles Coming Soon</h3>
+                <p className="text-gray-600 mb-6">
+                  We're working on more in-depth articles about SQL Server optimization, performance tuning strategies, and database best practices.
+                </p>
+                <a href="https://outlook.office.com/book/SQLOPTIMISE@NETORGFT9176567.onmicrosoft.com/" className="btn-primary">
+                  Get Personalized Advice
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
