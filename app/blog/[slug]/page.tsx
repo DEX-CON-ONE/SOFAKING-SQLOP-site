@@ -161,12 +161,13 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
               {post.tags && post.tags.length > 0 && (
                 <div className="flex items-center space-x-2">
                   {post.tags.slice(0, 3).map((tag) => (
-                    <span 
+                    <Link
                       key={tag}
-                      className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                      href={`/blog/tag/${encodeURIComponent(tag.toLowerCase())}`}
+                      className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs hover:bg-primary hover:text-white transition-colors"
                     >
                       {tag}
-                    </span>
+                    </Link>
                   ))}
                 </div>
               )}
