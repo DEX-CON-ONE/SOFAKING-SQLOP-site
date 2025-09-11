@@ -70,6 +70,7 @@ Questioning flow tips
 - Screenshots for visible UI changes.
 - Confirmed quality gates in PR body.
 - No unrelated formatting or dependency bumps.
+- Never base from the main branch unless explicitly requested
 
 ## Pitfalls to avoid
 - Using hooks in a Server Component (missing `"use client"`).
