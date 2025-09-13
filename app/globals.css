@@ -3,31 +3,407 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 31, 41, 55; /* secondary color */
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 248, 250, 252;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 11, 18, 32; /* background-dark */
+    --background-end-rgb: 31, 41, 55; /* secondary */
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'Inter', sans-serif;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+/* Scroll-reveal: hidden by default, then revealed with animation */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Scroll-reveal animations with reduced motion support */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+
+.scroll-reveal.revealed {
+  animation: var(--sr-anim, fadeInUp) var(--sr-dur, 1s) var(--sr-ease, cubic-bezier(0.2, 0.7, 0.2, 1)) var(--sr-delay, 0ms) forwards;
+}
+
+/* Additional keyframes for a subtle pop-in of the main headline */
+@keyframes popInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0) scale(1.01);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Breathing-in keyframe for the "Now that's refreshing" text */
+@keyframes breatheIn {
+  0% {
+    opacity: 0;
+    transform: translateY(26px) scale(0.98);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(0) scale(1.12); /* expand larger */
+  }
+  70% {
+    transform: translateY(0) scale(0.98); /* soft contract */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Utilities for sequencing ScrollReveal animations */
+@layer utilities {
+  .sr-anim-pop { --sr-anim: popInUp; --sr-dur: 1.1s; --sr-ease: cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .sr-anim-fade { --sr-anim: fadeInUp; --sr-dur: 1s; --sr-ease: cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .sr-anim-breathe { --sr-anim: breatheIn; --sr-dur: 1.6s; --sr-ease: cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .sr-delay-0 { --sr-delay: 0ms; }
+  .sr-delay-200 { --sr-delay: 200ms; }
+  .sr-delay-450 { --sr-delay: 450ms; }
+  .sr-delay-700 { --sr-delay: 700ms; }
+  /* Longer, more readable staggers */
+  .sr-delay-1200 { --sr-delay: 1200ms; }
+  .sr-delay-1400 { --sr-delay: 1400ms; }
+  .sr-delay-3000 { --sr-delay: 3000ms; }
+  .sr-delay-4300 { --sr-delay: 4300ms; }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .scroll-reveal.revealed {
+    animation: none;
+  }
+  .float-animation {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@layer components {
+  /* Pill-shaped buttons as per specification */
+  .btn-primary {
+  @apply relative inline-flex items-center justify-center text-white px-7 py-3 rounded-full font-semibold transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60;
+  background: linear-gradient(180deg, #22C55E 0%, #16A34A 100%); /* accent green → darker green */
+  text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+  overflow: hidden; /* contain shimmer */
+  }
+  /* Subtle idle shimmer (low-alpha) */
+  .btn-primary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(120deg,
+      rgba(255,255,255,0.06) 0%,
+      rgba(255,255,255,0.12) 12%,
+      rgba(255,255,255,0.06) 24%,
+      rgba(255,255,255,0) 40%
+    );
+    transform: translateX(0);
+    animation: btnIdleShimmer 6.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes btnIdleShimmer {
+    0%, 20% { transform: translateX(0); opacity: 0.85; }
+    60% { transform: translateX(30%); opacity: 0.6; }
+    100% { transform: translateX(60%); opacity: 0.85; }
+  }
+  /* Hover sheen: brighter, quick single sweep */
+  .btn-primary::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.45) 50%, rgba(255,255,255,0) 100%);
+    transform: translateX(0) skewX(-15deg);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .btn-primary:hover::after,
+  .btn-primary:focus-visible::after {
+    animation: btnHoverSheen 1.2s ease-out 1;
+    opacity: 1;
+  }
+  @keyframes btnHoverSheen {
+    0% { left: -50%; opacity: 0; }
+    10% { left: -10%; opacity: 1; }
+    55% { left: 60%; opacity: 0.65; }
+    100% { left: 120%; opacity: 0; }
+  }
+  .btn-primary:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active {
+    transform: translateY(0);
+    filter: brightness(0.97);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primary::before, .btn-primary::after { animation: none; opacity: 0; }
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-7 py-3 rounded-full font-semibold transition-all duration-300 border text-white/90 hover:text-white hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50;
+    border-color: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(6px);
+  }
+  .btn-secondary:hover {
+    border-color: rgba(255,255,255,0.65);
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-1px);
+  }
+  .btn-secondary:active {
+    transform: translateY(0);
+  }
+  
+  /* Elevated cards with lift hover effect */
+  .card-elevated {
+    @apply bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100;
+  }
+  
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  /* Dynamic hero background container with bottom blend mask */
+  .hero-fullscreen {
+    position: relative;
+    /* Longer blend: start fade earlier for a smoother transition */
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 62%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 62%, rgba(0,0,0,0) 100%);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+
+  /* Background video styling */
+  .hero-video { object-fit: cover; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-video { display: none; }
+  }
+  
+  /* On small screens, avoid fixed backgrounds which can cause jank/overlap */
+  /* No special handling needed for background-attachment when using video */
+  
+  /* Static background applied to body for continuous visibility */
+  body {
+    background-image: url('/assets/brand/website_BG-static.png');
+    background-size: cover;
+    background-position: center;
+  background-attachment: scroll;
+    background-repeat: no-repeat;
+  }
+  
+  @media (max-width: 767px) {
+    body {
+      background-attachment: scroll;
+    }
+  }
+  
+  /* Content sections with minimal opacity to show background */
+  .content-background {
+    background: transparent;
+    min-height: 100vh;
+    width: 100%;
+  }
+  
+  /* Dynamic overlay for hero - much more translucent to show background image */
+  .hero-overlay {
+    background: linear-gradient(135deg, rgba(228, 7, 240, 0.3) 0%, rgba(250, 183, 0, 0.2) 100%);
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+  @media (max-width: 767px) {
+    .hero-overlay { background: linear-gradient(135deg, rgba(228, 7, 240, 0.22) 0%, rgba(250, 183, 0, 0.12) 100%); }
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* "Now that's refreshing" text box - enhanced for better visibility */
+  .refreshing-box {
+    @apply bg-white/30 backdrop-blur-md border border-white/40 rounded-lg px-6 py-4 text-white font-semibold text-lg shadow-xl;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Mobile: keep it simple, no boxy background if shown */
+  @media (max-width: 767px) {
+    .refreshing-box {
+      background: transparent;
+      backdrop-filter: none;
+      border: 0;
+      box-shadow: none;
+      padding: 0.25rem 0.5rem;
+      text-shadow: none;
+    }
+  }
+  
+  /* Scroll-down indicator */
+  .scroll-indicator {
+    @apply absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white;
+    animation: bounce 2s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    40% {
+      transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+      transform: translateX(-50%) translateY(-5px);
+    }
+  }
+  
+  /* Simple AI chat styling - very translucent with modern design */
+  .ai-chat-simple {
+    @apply bg-white/5 backdrop-blur-md border border-white/20 rounded-2xl p-8 shadow-2xl;
+  }
+  
+  .chat-input {
+    @apply bg-white/10 backdrop-blur-sm border border-white/30 rounded-full px-6 py-4 text-white placeholder-white/60 flex-1 focus:outline-none focus:ring-2 focus:ring-white/40 focus:border-white/50 text-lg;
+  }
+  
+  .chat-send-btn {
+  @apply bg-accent hover:bg-accent/80 text-white p-4 rounded-full ml-4 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105;
+  }
+  
+  /* Text shadow utilities for better contrast against backgrounds */
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  /* (Glow removed by request) */
+
+  /* Animated sheen sweep across the logo */
+  .logo-sheen::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -40%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(105deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-20deg);
+    animation: logoSheen 4.5s ease-in-out infinite;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  /* Interactive sheen: faster single pass on hover/focus */
+  .logo-sheen:hover::after,
+  .logo-sheen:focus-visible::after {
+    animation: logoSheenHover 1.6s ease-in-out 1;
+    opacity: 1;
+  }
+
+  @keyframes logoSheen {
+    0% { left: -40%; opacity: 0; }
+    10% { left: 10%; opacity: 1; }
+    20% { left: 60%; opacity: 0; }
+    100% { left: 60%; opacity: 0; }
+  }
+
+  /* Quicker, full sweep for interactive hover */
+  @keyframes logoSheenHover {
+    0% { left: -50%; opacity: 0; }
+    15% { left: 0%; opacity: 1; }
+    55% { left: 80%; opacity: 0.6; }
+    100% { left: 110%; opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-sheen::after { animation: none; opacity: 0; }
+    .logo-sheen:hover::after,
+    .logo-sheen:focus-visible::after { animation: none; opacity: 0; }
+  }
+
+  /* Subtle edge-only white glow using alpha-aware drop-shadow */
+  .logo-edge-glow {
+    filter:
+      drop-shadow(0 0 3px rgba(255, 255, 255, 0.55))
+      drop-shadow(0 0 7px rgba(255, 255, 255, 0.25));
+    transition: filter 200ms ease;
+  }
+
+  /* Intensify edge glow on hover/focus of the wrapper link */
+  .logo-sheen:hover .logo-edge-glow,
+  .logo-sheen:focus-visible .logo-edge-glow {
+    filter:
+      drop-shadow(0 0 4px rgba(255, 255, 255, 0.75))
+      drop-shadow(0 0 10px rgba(255, 255, 255, 0.45));
   }
 }

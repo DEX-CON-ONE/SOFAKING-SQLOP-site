@@ -1,0 +1,214 @@
+# SQLOPTIMISE customization configuration
+# Generated for SQL performance consulting website
+version: 1
+project:
+  name: "SQLOPTIMISE"
+  domain: "sqloptimise.com"
+  environment: "production"
+
+brand:
+  logo: "/logo.svg"
+  favicon: "/favicon.ico"
+  darkMode: true
+  colors:
+    primary: "#0EA5E9"  # Sky blue - professional tech color
+    secondary: "#1F2937"  # Dark gray - professional
+    accent: "#22C55E"  # Green for success/performance gains
+    backgroundLight: "#FFFFFF"
+    backgroundDark: "#0B1220"
+  typography:
+    headingFont: "Inter"
+    bodyFont: "Inter"
+    googleFontsHref: "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+
+content:
+  hero:
+    tagline: "SQL Performance Consulting"
+    headline: "Boost Your Database Performance by 10x"
+    subheadline: "Expert SQL optimization and database tuning that delivers measurable results. Get faster queries, reduced costs, and improved user experience."
+    primaryCta:
+      label: "Book a consultation"
+      href: "/contact"
+      kind: "link"
+    secondaryCta:
+      label: "View our services"
+      href: "/services"
+  differentiators:
+    - "Senior SQL experts, not junior developers"
+    - "Guaranteed measurable performance improvements"
+    - "Transparent fixed-fee consulting engagements"
+    - "Proven track record with enterprise clients"
+  testimonials:
+    - name: "Sarah Johnson"
+      title: "CTO, TechCorp"
+      quote: "SQLOPTIMISE reduced our query response times by 85% in just two weeks. Outstanding results."
+    - name: "Mike Chen"  
+      title: "Database Administrator, DataFlow Inc"
+      quote: "Their health check identified critical issues we didn't even know existed. Saved us from potential disasters."
+
+services:
+  overview: "We provide comprehensive SQL optimization and database performance consulting services for businesses of all sizes."
+  items:
+    - name: "Performance Tuning"
+      short: "Identify and eliminate SQL bottlenecks for faster query execution."
+      details:
+        - "Query plan analysis and optimization strategies"
+        - "Index design and implementation"
+        - "Parameter sniffing and plan cache optimization"
+        - "Wait stats analysis and blocking resolution"
+      cta:
+        label: "Learn more"
+        href: "/services/performance-tuning"
+    - name: "Database Health Check"
+      short: "Comprehensive assessment with prioritized remediation roadmap."
+      details:
+        - "Configuration audit and best practice recommendations"
+        - "Storage and memory optimization analysis"
+        - "Backup strategy and disaster recovery review"
+        - "Security and compliance assessment"
+      cta:
+        label: "Learn more"
+        href: "/services/health-check"
+    - name: "Query Optimization"
+      short: "Transform slow queries into high-performance database operations."
+      details:
+        - "Complex query rewriting and optimization"
+        - "Stored procedure performance enhancement"
+        - "View and function optimization"
+        - "Dynamic SQL performance improvement"
+      cta:
+        label: "Learn more"
+        href: "/services/query-optimization"
+
+pages:
+  home:
+    enabled: true
+    sections: [hero, services, testimonials, cta]
+  about:
+    enabled: true
+    team: []
+  services:
+    enabled: true
+    detailPages: true
+  caseStudies:
+    enabled: true
+  blog:
+    enabled: true
+  faq:
+    enabled: true
+  pricing:
+    enabled: true
+  contact:
+    enabled: true
+
+navigation:
+  header:
+    - label: "Services"
+      href: "/services"
+    - label: "Case Studies"
+      href: "/case-studies"
+    - label: "Pricing"
+      href: "/pricing"
+    - label: "About"
+      href: "/about"
+    - label: "Contact"
+      href: "/contact"
+  footer:
+    columns:
+      - title: "Services"
+        links:
+          - label: "Performance Tuning"
+            href: "/services/performance-tuning"
+          - label: "Health Check"
+            href: "/services/health-check"
+          - label: "Query Optimization"
+            href: "/services/query-optimization"
+      - title: "Company"
+        links:
+          - label: "About Us"
+            href: "/about"
+          - label: "Case Studies"
+            href: "/case-studies"
+          - label: "Pricing"
+            href: "/pricing"
+      - title: "Support"
+        links:
+          - label: "FAQ"
+            href: "/faq"
+          - label: "Contact"
+            href: "/contact"
+          - label: "Privacy Policy"
+            href: "/privacy"
+
+conversion:
+  primaryCta:
+    label: "Get Your Free Assessment"
+    href: "/contact"
+  contact:
+    email: "info@sqloptimise.com"
+    phone: "+1 (555) 123-4567"
+    address: ""
+  leadMagnet:
+    title: "SQL Performance Optimization Checklist"
+    assetUrl: "/resources/sql-optimization-checklist.pdf"
+
+integrations:
+  analytics:
+    provider: "none"
+    ga4MeasurementId: ""
+    plausibleDomain: ""
+    posthogKey: ""
+    posthogHost: "https://app.posthog.com"
+  crm:
+    provider: "none"
+    apiKeyEnv: ""
+  forms:
+    handler: "none"
+    formspreeId: ""
+  scheduling:
+    calendlyUrl: ""
+
+seo:
+  titleTemplate: "%s | SQLOPTIMISE"
+  defaultTitle: "SQLOPTIMISE - SQL Performance Consulting & Database Optimization"
+  defaultDescription: "Expert SQL optimization and database performance consulting. Boost your database performance by 10x with guaranteed measurable results from senior SQL experts."
+  keywords: ["sql performance", "database tuning", "sql optimization", "query optimization", "database consulting", "sql server performance"]
+  openGraphImage: "/og-image.png"
+  twitterHandle: "@sqloptimise"
+  sitemap:
+    include: ["/", "/services", "/about", "/case-studies", "/pricing", "/contact", "/faq"]
+    exclude: []
+
+legal:
+  privacyPolicyUrl: "/privacy"
+  termsUrl: "/terms"
+  cookieBanner: false
+
+social:
+  linkedin: "https://www.linkedin.com/company/sqloptimise"
+  github: "https://github.com/sqloptimise"
+  twitter: "https://x.com/sqloptimise"
+
+assets:
+  images:
+    - src: "/hero-database.jpg"
+      alt: "High-performance database servers"
+    - src: "/team-experts.jpg"
+      alt: "SQL optimization experts at work"
+  clientLogos:
+    - src: "/clients/techcorp.svg"
+      alt: "TechCorp"
+      url: "https://techcorp.com"
+    - src: "/clients/dataflow.svg"
+      alt: "DataFlow Inc"
+      url: "https://dataflow-inc.com"
+
+operations:
+  hosting: "vercel"
+  performanceTargets:
+    lighthouse:
+      performance: 95
+      accessibility: 90
+      bestPractices: 90
+      seo: 95
+  deadline: ""

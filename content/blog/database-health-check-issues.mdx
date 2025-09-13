@@ -1,0 +1,135 @@
+---
+title: "Common Database Health Check Issues and Solutions"
+excerpt: "Learn about the most frequent problems uncovered during database health checks and how to resolve them."
+date: "2024-01-10"
+category: "Health Check"
+readTime: "12 min read"
+author: "SQLOPTIMISE Team"
+tags: ["Database Health", "Maintenance", "Best Practices", "Troubleshooting"]
+---
+
+# Common Database Health Check Issues and Solutions
+
+A comprehensive database health check is like a medical checkup for your SQL Server environment. It reveals hidden issues that could be silently degrading performance or putting your data at risk. Based on hundreds of health checks we've performed, here are the most common issues we encounter and how to fix them.
+
+## 1. Inadequate Backup Strategies
+
+**The Problem**: Many organizations have backup strategies that look good on paper but fail in practice.
+
+**Common Issues We Find**:
+- Backup files not tested for restoration
+- Missing transaction log backups for full recovery model databases
+- Backups stored on the same server as the database
+- No documented recovery procedures
+
+**The Solution**:
+```sql
+-- Check backup history
+SELECT 
+    d.name AS DatabaseName,
+    MAX(b.backup_finish_date) AS LastBackupDate,
+    b.type AS BackupType
+FROM sys.databases d
+LEFT JOIN msdb.dbo.backupset b ON d.name = b.database_name
+WHERE d.name NOT IN ('tempdb')
+GROUP BY d.name, b.type
+ORDER BY d.name, b.type
+```
+
+**Best Practices**:
+- Test backup restoration regularly
+- Store backups offsite or in cloud storage
+- Implement automated backup verification
+- Document and test your disaster recovery procedures
+
+## 2. Auto-Growth Settings Gone Wrong
+
+**The Problem**: Default auto-growth settings can cause severe performance issues and fragmentation.
+
+**What We Typically Find**:
+- Data files set to grow by percentage (especially 10%)
+- Transaction log files with small fixed growth increments
+- No maximum file size limits
+- Files growing on slow storage
+
+**The Fix**:
+```sql
+-- Check current auto-growth settings
+SELECT 
+    name AS FileName,
+    size/128 AS CurrentSizeMB,
+    CASE 
+        WHEN is_percent_growth = 1 THEN CAST(growth AS VARCHAR) + '%'
+        ELSE CAST(growth*8 AS VARCHAR) + ' KB'
+    END AS GrowthSetting,
+    max_size
+FROM sys.database_files
+```
+
+**Recommended Settings**:
+- Set data file growth to fixed MB amounts (typically 100-500MB)
+- Set log file growth to fixed MB amounts (typically 100-250MB)
+- Pre-size files appropriately to minimize auto-growth events
+- Set reasonable maximum file sizes
+
+## 3. Missing or Ineffective Indexes
+
+**The Problem**: Poor indexing strategy is the #1 cause of performance issues.
+
+**Common Findings**:
+- Tables with no indexes at all
+- Indexes with very low usage statistics
+- Missing indexes for common query patterns
+- Duplicate or overlapping indexes
+
+**Analysis Query**:
+```sql
+-- Find missing indexes
+SELECT 
+    migs.avg_total_user_cost * (migs.avg_user_impact / 100.0) * (migs.user_seeks + migs.user_scans) AS improvement_measure,
+    'CREATE INDEX [IX_' + OBJECT_NAME(mid.object_id, mid.database_id) + '_' 
+    + REPLACE(REPLACE(REPLACE(ISNULL(mid.equality_columns,''), ', ', '_'), '[', ''), ']', '') 
+    + CASE WHEN mid.inequality_columns IS NOT NULL THEN '_' + REPLACE(REPLACE(REPLACE(mid.inequality_columns, ', ', '_'), '[', ''), ']', '') ELSE '' END + ']'
+    + ' ON ' + mid.statement + ' (' + ISNULL(mid.equality_columns,'')
+    + CASE WHEN mid.equality_columns IS NOT NULL AND mid.inequality_columns IS NOT NULL THEN ',' ELSE '' END
+    + ISNULL(mid.inequality_columns, '') + ')' 
+    + ISNULL(' INCLUDE (' + mid.included_columns + ')', '') AS create_index_statement
+FROM sys.dm_db_missing_index_groups mig
+INNER JOIN sys.dm_db_missing_index_group_stats migs ON migs.group_handle = mig.index_group_handle
+INNER JOIN sys.dm_db_missing_index_details mid ON mig.index_handle = mid.index_handle
+WHERE migs.avg_total_user_cost * (migs.avg_user_impact / 100.0) * (migs.user_seeks + migs.user_scans) > 10
+ORDER BY improvement_measure DESC
+```
+
+## 4. Outdated Statistics
+
+**The Problem**: SQL Server relies on statistics to create optimal execution plans. Outdated statistics lead to poor performance.
+
+**Checking Statistics Age**:
+```sql
+-- Check statistics update dates
+SELECT 
+    OBJECT_NAME(s.object_id) AS TableName,
+    s.name AS StatName,
+    STATS_DATE(s.object_id, s.stats_id) AS LastUpdated,
+    sp.rows AS RowCount,
+    sp.rows_sampled AS SampleRows,
+    sp.modification_counter AS ModsSinceLastUpdate
+FROM sys.stats s
+CROSS APPLY sys.dm_db_stats_properties(s.object_id, s.stats_id) sp
+WHERE STATS_DATE(s.object_id, s.stats_id) < DATEADD(day, -7, GETDATE())
+ORDER BY sp.modification_counter DESC
+```
+
+**The Solution**:
+- Enable AUTO_UPDATE_STATISTICS (should be ON by default)
+- Consider AUTO_UPDATE_STATISTICS_ASYNC for large databases
+- Manually update statistics for critical tables after large data loads
+
+## Conclusion
+
+A proactive approach to database health monitoring can prevent most performance issues and data disasters. Regular health checks should be part of every DBA's routine, not something done only when problems occur.
+
+---
+
+*Want a comprehensive health check of your SQL Server environment? Our experts can identify and prioritize issues specific to your databases. [Schedule a free consultation](https://outlook.office.com/book/SQLOPTIMISE@NETORGFT9176567.onmicrosoft.com/) to get started.*
