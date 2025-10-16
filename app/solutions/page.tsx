@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import SolutionsContactForm from "@/components/SolutionsContactForm";
 
 export default function Solutions() {
   const solutions = [
@@ -87,92 +88,72 @@ export default function Solutions() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="bg-gradient-to-r from-primary/10 to-secondary/8 backdrop-blur-sm text-white section-padding">
-          <div className="container-max text-center">
-            <div className="scroll-reveal">
-              <h2 className="text-4xl font-bold mb-6 drop-shadow-lg text-shadow-lg">
-                Don&apos;t See Your Problem Listed?
-              </h2>
-              <p className="text-xl text-white/95 mb-10 max-w-3xl mx-auto leading-relaxed drop-shadow-md text-shadow">
-                Every SQL Server environment is unique. Let&apos;s discuss your specific challenges and create a tailored solution.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <a 
-                  href="https://outlook.office.com/book/SQLOPTIMISE@NETORGFT9176567.onmicrosoft.com/" 
-                  className="btn-primary text-lg"
-                >
-                  Schedule a Call
-                </a>
-                <Link href="/contact" className="btn-secondary text-lg">
-                  Contact Us
-                </Link>
+        {/* CTA Section with Contact Form */}
+        <section className="section-padding">
+          <div className="container-max">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+              <div className="scroll-reveal">
+                <h2 className="text-4xl font-bold mb-6 text-white drop-shadow-lg text-shadow-lg">
+                  Don&apos;t See Your Problem Listed?
+                </h2>
+                <p className="text-xl text-white/95 mb-8 leading-relaxed drop-shadow-md text-shadow">
+                  Every SQL Server environment is unique. Let&apos;s discuss your specific challenges and create a tailored solution.
+                </p>
+                
+                <div className="space-y-6 mb-8">
+                  <div className="flex items-start">
+                    <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                      <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-2">Expert Review</h3>
+                      <p className="text-white/90">Our team will review your specific situation and recommend the best approach.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                      <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-2">Schedule a Call</h3>
+                      <p className="text-white/90">After submission, you&apos;ll be directed to book a convenient time to discuss your needs.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <div className="w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-2">Fast Response</h3>
+                      <p className="text-white/90">Our team typically responds within 1 business day with initial recommendations.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6">
+                  <p className="text-white/90 mb-2">
+                    <strong className="text-white">Note:</strong> HubSpot CRM integration is ready and waiting for your API keys.
+                  </p>
+                  <p className="text-sm text-white/70">
+                    Set <code className="bg-white/10 px-2 py-1 rounded">NEXT_PUBLIC_HUBSPOT_PORTAL_ID</code> and <code className="bg-white/10 px-2 py-1 rounded">NEXT_PUBLIC_HUBSPOT_FORM_ID</code> environment variables to activate lead tracking.
+                  </p>
+                </div>
+              </div>
+
+              <div className="scroll-reveal">
+                <SolutionsContactForm />
               </div>
             </div>
           </div>
         </section>
-
-        {/* Footer */}
-        <footer className="bg-gray-900/50 backdrop-blur-sm text-white section-padding border-t border-white/10">
-          <div className="container-max">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-              <div className="md:col-span-2">
-                <div className="flex items-center mb-6">
-                  <Image 
-                    src="/assets/brand/Brand_Logo-stacked.png" 
-                    alt="SQLOPTIMISE Logo" 
-                    width={120} 
-                    height={60}
-                    className="h-12 w-auto brightness-0 invert"
-                  />
-                </div>
-                <p className="text-gray-300 mb-6 text-lg leading-relaxed max-w-lg">
-                  Expert SQL optimization and database performance consulting for enterprise clients. Guaranteed measurable improvements with transparent pricing.
-                </p>
-                <div className="flex space-x-4">
-                  <a href="https://www.linkedin.com/company/sqloptimise/" className="text-gray-300 hover:text-white transition-colors transform hover:scale-110">
-                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                  </a>
-                  <a href="https://github.com/DEX-CON-ONE" className="text-gray-300 hover:text-white transition-colors transform hover:scale-110">
-                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              
-              <div>
-                <h4 className="font-bold text-xl mb-6 text-secondary">Company</h4>
-                <ul className="space-y-3">
-                  <li><Link href="/about" className="text-gray-300 hover:text-white transition-colors text-lg">About</Link></li>
-                  <li><Link href="/privacy" className="text-gray-300 hover:text-white transition-colors text-lg">Privacy</Link></li>
-                  <li><Link href="/contact" className="text-gray-300 hover:text-white transition-colors text-lg">Contact</Link></li>
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-bold text-xl mb-6 text-secondary">Resources</h4>
-                <ul className="space-y-3">
-                  <li><Link href="/blog" className="text-gray-300 hover:text-white transition-colors text-lg">Blog</Link></li>
-                  <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors text-lg">Services</Link></li>
-                </ul>
-              </div>
-            </div>
-            
-            <div className="border-t border-gray-700 pt-8">
-              <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                <p className="text-gray-300 text-lg">© 2024 SQLOPTIMISE. All rights reserved.</p>
-                <div className="flex items-center space-x-8">
-                  <a href="mailto:info@sqloptimise.com" className="text-gray-300 hover:text-white transition-colors text-lg">
-                    info@sqloptimise.com
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
       </div>
     </div>
   );

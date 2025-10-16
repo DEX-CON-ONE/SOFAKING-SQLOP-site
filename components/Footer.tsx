@@ -38,9 +38,11 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-xl mb-6 text-secondary">Services</h4>
             <ul className="space-y-3">
+              <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors text-lg">All Services</Link></li>
               <li><Link href="/services/performance-tuning" className="text-gray-300 hover:text-white transition-colors text-lg">Performance Tuning</Link></li>
               <li><Link href="/services/health-check" className="text-gray-300 hover:text-white transition-colors text-lg">Health Check</Link></li>
               <li><Link href="/services/query-optimization" className="text-gray-300 hover:text-white transition-colors text-lg">Query Optimization</Link></li>
+              <li><Link href="/solutions" className="text-gray-300 hover:text-white transition-colors text-lg">Solutions</Link></li>
             </ul>
           </div>
           
