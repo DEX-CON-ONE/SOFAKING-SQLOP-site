@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getAllPosts, getAllTags } from "@/lib/blog";
-import Footer from "@/components/Footer";
 
 export default function BlogPage() {
   const posts = getAllPosts();
@@ -236,9 +235,6 @@ export default function BlogPage() {
           </div>
         </section>
       </div>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 }
