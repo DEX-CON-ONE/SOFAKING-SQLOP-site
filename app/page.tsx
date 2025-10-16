@@ -63,6 +63,69 @@ export default function Home() {
 
       {/* Content with Static Background */}
       <div className="content-background">
+        {/* Value Proposition Cards - Three Proof Points */}
+        <section className="text-white section-padding">
+          <div className="container-max">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="scroll-reveal sr-anim-fade sr-delay-200 card-elevated bg-white/5 backdrop-blur-sm border border-white/20 p-8 text-center">
+                <div className="text-accent text-5xl font-bold mb-4">↑ 85%</div>
+                <h3 className="text-2xl font-bold mb-3 text-white">Stability Increase</h3>
+                <p className="text-white/90 leading-relaxed">
+                  Eliminate outages with proactive monitoring, automated backups, and best-practice configuration.
+                </p>
+              </div>
+              <div className="scroll-reveal sr-anim-fade sr-delay-450 card-elevated bg-white/5 backdrop-blur-sm border border-white/20 p-8 text-center">
+                <div className="text-accent text-5xl font-bold mb-4">↓ 40%</div>
+                <h3 className="text-2xl font-bold mb-3 text-white">Cost Reduction</h3>
+                <p className="text-white/90 leading-relaxed">
+                  Optimize resource usage, right-size infrastructure, and reduce licensing costs through efficient tuning.
+                </p>
+              </div>
+              <div className="scroll-reveal sr-anim-fade sr-delay-700 card-elevated bg-white/5 backdrop-blur-sm border border-white/20 p-8 text-center">
+                <div className="text-accent text-5xl font-bold mb-4">↑ 10x</div>
+                <h3 className="text-2xl font-bold mb-3 text-white">Speed Improvement</h3>
+                <p className="text-white/90 leading-relaxed">
+                  Transform slow queries into high-performance operations with expert indexing and query optimization.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How We Work Section */}
+        <section className="text-white section-padding">
+          <div className="container-max">
+            <div className="scroll-reveal text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">How We Work</h2>
+              <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                A proven methodology for sustainable SQL Server performance
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="scroll-reveal sr-anim-fade sr-delay-200 text-center">
+                <div className="bg-accent/20 backdrop-blur-sm border border-accent/40 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-accent">1</div>
+                <h3 className="text-xl font-bold mb-2 text-white">Assess</h3>
+                <p className="text-white/80">Comprehensive health check identifying bottlenecks and risks</p>
+              </div>
+              <div className="scroll-reveal sr-anim-fade sr-delay-450 text-center">
+                <div className="bg-accent/20 backdrop-blur-sm border border-accent/40 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-accent">2</div>
+                <h3 className="text-xl font-bold mb-2 text-white">Fix</h3>
+                <p className="text-white/80">Prioritized remediation of critical issues and quick wins</p>
+              </div>
+              <div className="scroll-reveal sr-anim-fade sr-delay-700 text-center">
+                <div className="bg-accent/20 backdrop-blur-sm border border-accent/40 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-accent">3</div>
+                <h3 className="text-xl font-bold mb-2 text-white">Automate</h3>
+                <p className="text-white/80">Implement best-practice automation and monitoring frameworks</p>
+              </div>
+              <div className="scroll-reveal sr-anim-fade sr-delay-700 text-center">
+                <div className="bg-accent/20 backdrop-blur-sm border border-accent/40 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-accent">4</div>
+                <h3 className="text-xl font-bold mb-2 text-white">Monitor</h3>
+                <p className="text-white/80">Ongoing health tracking and proactive performance management</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* AI Chat Component */}
         <section className="text-white py-12">
           <div className="container-max">
