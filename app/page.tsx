@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import Footer from "../components/Footer";
 
 const ChatWidget = dynamic(() => import("../components/ChatWidget"), { ssr: false });
 
@@ -151,9 +150,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* Footer */}
-        <Footer />
       </div>
     </div>
   );

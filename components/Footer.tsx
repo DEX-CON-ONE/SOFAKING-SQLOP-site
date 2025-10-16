@@ -38,20 +38,44 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-xl mb-6 text-secondary">Services</h4>
             <ul className="space-y-3">
-              <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors text-lg">All Services</Link></li>
-              <li><Link href="/solutions" className="text-gray-300 hover:text-white transition-colors text-lg">Solutions</Link></li>
-              <li><Link href="/pricing" className="text-gray-300 hover:text-white transition-colors text-lg">Pricing</Link></li>
+              <li><Link href="/services/performance-tuning" className="text-gray-300 hover:text-white transition-colors text-lg">Performance Tuning</Link></li>
+              <li><Link href="/services/health-check" className="text-gray-300 hover:text-white transition-colors text-lg">Health Check</Link></li>
+              <li><Link href="/services/query-optimization" className="text-gray-300 hover:text-white transition-colors text-lg">Query Optimization</Link></li>
             </ul>
           </div>
           
-          {/* Learn & Company Column */}
+          {/* Company Column */}
           <div>
-            <h4 className="font-bold text-xl mb-6 text-secondary">Learn & Connect</h4>
+            <h4 className="font-bold text-xl mb-6 text-secondary">Company</h4>
             <ul className="space-y-3">
+              <li><Link href="/about" className="text-gray-300 hover:text-white transition-colors text-lg">About Us</Link></li>
+              <li><Link href="/case-studies" className="text-gray-300 hover:text-white transition-colors text-lg">Case Studies</Link></li>
+              <li><Link href="/pricing" className="text-gray-300 hover:text-white transition-colors text-lg">Pricing</Link></li>
+            </ul>
+          </div>
+        </div>
+        
+        {/* Support & Learn Section */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+          <div className="md:col-span-2"></div>
+          
+          {/* Support Column */}
+          <div>
+            <h4 className="font-bold text-xl mb-6 text-secondary">Support</h4>
+            <ul className="space-y-3">
+              <li><Link href="/faq" className="text-gray-300 hover:text-white transition-colors text-lg">FAQ</Link></li>
+              <li><Link href="/contact" className="text-gray-300 hover:text-white transition-colors text-lg">Contact</Link></li>
+              <li><Link href="/privacy" className="text-gray-300 hover:text-white transition-colors text-lg">Privacy Policy</Link></li>
+            </ul>
+          </div>
+          
+          {/* Learn Column */}
+          <div>
+            <h4 className="font-bold text-xl mb-6 text-secondary">Learn</h4>
+            <ul className="space-y-3">
+              <li><Link href="/blog" className="text-gray-300 hover:text-white transition-colors text-lg">Blog</Link></li>
               <li><Link href="/products" className="text-gray-300 hover:text-white transition-colors text-lg">Products</Link></li>
               <li><Link href="/resources" className="text-gray-300 hover:text-white transition-colors text-lg">Resources</Link></li>
-              <li><Link href="/about" className="text-gray-300 hover:text-white transition-colors text-lg">About</Link></li>
-              <li><Link href="/contact" className="text-gray-300 hover:text-white transition-colors text-lg">Contact</Link></li>
             </ul>
           </div>
         </div>

@@ -59,6 +59,9 @@ export default function Navbar() {
         </button>
         {learnOpen && (
           <div className="absolute top-full left-0 mt-2 w-48 bg-gray-900/95 backdrop-blur-md rounded-lg shadow-xl border border-white/20 overflow-hidden">
+            <Link href="/blog" className={dropdownLinkClass}>
+              Blog
+            </Link>
             <Link href="/products" className={dropdownLinkClass}>
               Products
             </Link>
@@ -92,7 +95,10 @@ export default function Navbar() {
       <Link href="/solutions" className={`${linkClass} pl-6`} onClick={() => setOpen(false)}>
         Solutions
       </Link>
-      <Link href="/products" className={linkClass} onClick={() => setOpen(false)}>
+      <Link href="/blog" className={`${linkClass} pl-6`} onClick={() => setOpen(false)}>
+        Blog
+      </Link>
+      <Link href="/products" className={`${linkClass} pl-6`} onClick={() => setOpen(false)}>
         Products
       </Link>
       <Link href="/resources" className={`${linkClass} pl-6`} onClick={() => setOpen(false)}>
