@@ -43,7 +43,7 @@ export default function SolutionsContactForm({
             body: JSON.stringify({
               fields: [
                 { name: "firstname", value: formData.name.split(" ")[0] },
-                { name: "lastname", value: formData.name.split(" ").slice(1).join(" ") || formData.name.split(" ")[0] },
+                { name: "lastname", value: formData.name.split(" ").slice(1).join(" ") || "" },
                 { name: "email", value: formData.email },
                 { name: "company", value: formData.company },
                 { name: "phone", value: formData.phone },
