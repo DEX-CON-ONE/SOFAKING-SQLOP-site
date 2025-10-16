@@ -14,6 +14,7 @@ export interface BlogPost {
   author?: string
   tags?: string[]
   content: string
+  featured?: boolean
 }
 
 export function getAllPosts(): BlogPost[] {
@@ -40,6 +41,7 @@ export function getAllPosts(): BlogPost[] {
         author: data.author,
         tags: data.tags,
         content,
+        featured: data.featured || false,
       } as BlogPost
     })
 
@@ -62,6 +64,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
       author: data.author,
       tags: data.tags,
       content,
+      featured: data.featured || false,
     } as BlogPost
   } catch (error) {
     return null
