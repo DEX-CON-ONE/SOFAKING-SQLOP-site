@@ -17,8 +17,17 @@ export default function Navbar() {
       <Link href="/services" className={linkClass} onClick={() => setOpen(false)}>
         Services
       </Link>
-      <Link href="/blog" className={linkClass} onClick={() => setOpen(false)}>
-        Blog
+      <Link href="/solutions" className={linkClass} onClick={() => setOpen(false)}>
+        Solutions
+      </Link>
+      <Link href="/products" className={linkClass} onClick={() => setOpen(false)}>
+        Products
+      </Link>
+      <Link href="/resources" className={linkClass} onClick={() => setOpen(false)}>
+        Resources
+      </Link>
+      <Link href="/pricing" className={linkClass} onClick={() => setOpen(false)}>
+        Pricing
       </Link>
       <Link href="/about" className={linkClass} onClick={() => setOpen(false)}>
         About
