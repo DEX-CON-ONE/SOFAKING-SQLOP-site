@@ -76,9 +76,6 @@ export default function Navbar() {
         )}
       </div>
 
-      <Link href="/pricing" className={linkClass}>
-        Pricing
-      </Link>
       <Link href="/about" className={linkClass}>
         About
       </Link>
@@ -107,9 +104,6 @@ export default function Navbar() {
       </Link>
       <Link href="/resources" className={`${linkClass} pl-6`} onClick={() => setOpen(false)}>
         Resources
-      </Link>
-      <Link href="/pricing" className={linkClass} onClick={() => setOpen(false)}>
-        Pricing
       </Link>
       <Link href="/about" className={linkClass} onClick={() => setOpen(false)}>
         About

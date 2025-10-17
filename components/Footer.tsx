@@ -52,7 +52,6 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><Link href="/about" className="text-gray-300 hover:text-white transition-colors text-lg">About Us</Link></li>
               <li><Link href="/case-studies" className="text-gray-300 hover:text-white transition-colors text-lg">Case Studies</Link></li>
-              <li><Link href="/pricing" className="text-gray-300 hover:text-white transition-colors text-lg">Pricing</Link></li>
             </ul>
           </div>
         </div>
