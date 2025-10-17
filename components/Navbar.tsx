@@ -34,10 +34,19 @@ export default function Navbar() {
           </svg>
         </button>
         {servicesOpen && (
-          <div className="absolute top-full left-0 pt-2 w-48">
+          <div className="absolute top-full left-0 pt-2 w-56">
             <div className="bg-gray-900/95 backdrop-blur-md rounded-lg shadow-xl border border-white/20 overflow-hidden">
               <Link href="/services" className={dropdownLinkClass}>
                 All Services
+              </Link>
+              <Link href="/services/performance-tuning" className={dropdownLinkClass}>
+                Performance Tuning
+              </Link>
+              <Link href="/services/health-check" className={dropdownLinkClass}>
+                Health Check
+              </Link>
+              <Link href="/services/query-optimization" className={dropdownLinkClass}>
+                Query Optimization
               </Link>
               <Link href="/solutions" className={dropdownLinkClass}>
                 Solutions
@@ -92,6 +101,15 @@ export default function Navbar() {
       </Link>
       <Link href="/services" className={linkClass} onClick={() => setOpen(false)}>
         Services
+      </Link>
+      <Link href="/services/performance-tuning" className={`${linkClass} pl-6 text-sm`} onClick={() => setOpen(false)}>
+        Performance Tuning
+      </Link>
+      <Link href="/services/health-check" className={`${linkClass} pl-6 text-sm`} onClick={() => setOpen(false)}>
+        Health Check
+      </Link>
+      <Link href="/services/query-optimization" className={`${linkClass} pl-6 text-sm`} onClick={() => setOpen(false)}>
+        Query Optimization
       </Link>
       <Link href="/solutions" className={`${linkClass} pl-6`} onClick={() => setOpen(false)}>
         Solutions
@@ -174,7 +192,7 @@ export default function Navbar() {
         </div>
         <div
           className={`md:hidden overflow-hidden transition-all duration-300 ${
-            open ? "max-h-96" : "max-h-0"
+            open ? "max-h-[600px]" : "max-h-0"
           }`}
         >
           <nav className="flex flex-col items-center space-y-4 pb-4">
