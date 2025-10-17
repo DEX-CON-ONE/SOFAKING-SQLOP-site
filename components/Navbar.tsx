@@ -13,7 +13,7 @@ export default function Navbar() {
     "text-white hover:text-secondary transition-colors font-medium drop-shadow-md";
   
   const dropdownLinkClass = 
-    "block px-4 py-2 text-white hover:bg-white/10 hover:text-secondary transition-colors";
+    "block px-4 py-3 text-white font-medium hover:bg-white/20 hover:text-accent transition-colors";
 
   const DesktopLinks = (
     <>
@@ -35,7 +35,7 @@ export default function Navbar() {
         </button>
         {servicesOpen && (
           <div className="absolute top-full left-0 pt-2 w-56">
-            <div className="bg-gray-900/95 backdrop-blur-md rounded-lg shadow-xl border border-white/20 overflow-hidden">
+            <div className="bg-gray-800/98 backdrop-blur-md rounded-lg shadow-2xl border border-white/30 overflow-hidden">
               <Link href="/services" className={dropdownLinkClass}>
                 All Services
               </Link>
@@ -70,7 +70,7 @@ export default function Navbar() {
         </button>
         {learnOpen && (
           <div className="absolute top-full left-0 pt-2 w-48">
-            <div className="bg-gray-900/95 backdrop-blur-md rounded-lg shadow-xl border border-white/20 overflow-hidden">
+            <div className="bg-gray-800/98 backdrop-blur-md rounded-lg shadow-2xl border border-white/30 overflow-hidden">
               <Link href="/blog" className={dropdownLinkClass}>
                 Blog
               </Link>
