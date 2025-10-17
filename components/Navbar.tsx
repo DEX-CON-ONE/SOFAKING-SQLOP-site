@@ -34,13 +34,15 @@ export default function Navbar() {
           </svg>
         </button>
         {servicesOpen && (
-          <div className="absolute top-full left-0 mt-2 w-48 bg-gray-900/95 backdrop-blur-md rounded-lg shadow-xl border border-white/20 overflow-hidden">
-            <Link href="/services" className={dropdownLinkClass}>
-              All Services
-            </Link>
-            <Link href="/solutions" className={dropdownLinkClass}>
-              Solutions
-            </Link>
+          <div className="absolute top-full left-0 pt-2 w-48">
+            <div className="bg-gray-900/95 backdrop-blur-md rounded-lg shadow-xl border border-white/20 overflow-hidden">
+              <Link href="/services" className={dropdownLinkClass}>
+                All Services
+              </Link>
+              <Link href="/solutions" className={dropdownLinkClass}>
+                Solutions
+              </Link>
+            </div>
           </div>
         )}
       </div>
@@ -58,16 +60,18 @@ export default function Navbar() {
           </svg>
         </button>
         {learnOpen && (
-          <div className="absolute top-full left-0 mt-2 w-48 bg-gray-900/95 backdrop-blur-md rounded-lg shadow-xl border border-white/20 overflow-hidden">
-            <Link href="/blog" className={dropdownLinkClass}>
-              Blog
-            </Link>
-            <Link href="/products" className={dropdownLinkClass}>
-              Products
-            </Link>
-            <Link href="/resources" className={dropdownLinkClass}>
-              Resources
-            </Link>
+          <div className="absolute top-full left-0 pt-2 w-48">
+            <div className="bg-gray-900/95 backdrop-blur-md rounded-lg shadow-xl border border-white/20 overflow-hidden">
+              <Link href="/blog" className={dropdownLinkClass}>
+                Blog
+              </Link>
+              <Link href="/products" className={dropdownLinkClass}>
+                Products
+              </Link>
+              <Link href="/resources" className={dropdownLinkClass}>
+                Resources
+              </Link>
+            </div>
           </div>
         )}
       </div>

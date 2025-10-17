@@ -68,21 +68,21 @@ export default function Home() {
           <div className="container-max">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="scroll-reveal sr-anim-fade sr-delay-200 card-elevated bg-white/5 backdrop-blur-sm border border-white/20 p-8 text-center">
-                <div className="text-accent text-5xl font-bold mb-4">↑ 85%</div>
+                <div className="text-accent text-5xl font-bold mb-4 bg-gray-900/60 backdrop-blur-md border border-accent/30 rounded-lg py-3 px-4 inline-block shadow-lg">↑ 85%</div>
                 <h3 className="text-2xl font-bold mb-3 text-white">Stability Increase</h3>
                 <p className="text-white/90 leading-relaxed">
                   Eliminate outages with proactive monitoring, automated backups, and best-practice configuration.
                 </p>
               </div>
               <div className="scroll-reveal sr-anim-fade sr-delay-450 card-elevated bg-white/5 backdrop-blur-sm border border-white/20 p-8 text-center">
-                <div className="text-accent text-5xl font-bold mb-4">↓ 40%</div>
+                <div className="text-accent text-5xl font-bold mb-4 bg-gray-900/60 backdrop-blur-md border border-accent/30 rounded-lg py-3 px-4 inline-block shadow-lg">↓ 40%</div>
                 <h3 className="text-2xl font-bold mb-3 text-white">Cost Reduction</h3>
                 <p className="text-white/90 leading-relaxed">
                   Optimize resource usage, right-size infrastructure, and reduce licensing costs through efficient tuning.
                 </p>
               </div>
               <div className="scroll-reveal sr-anim-fade sr-delay-700 card-elevated bg-white/5 backdrop-blur-sm border border-white/20 p-8 text-center">
-                <div className="text-accent text-5xl font-bold mb-4">↑ 10x</div>
+                <div className="text-accent text-5xl font-bold mb-4 bg-gray-900/60 backdrop-blur-md border border-accent/30 rounded-lg py-3 px-4 inline-block shadow-lg">↑ 10x</div>
                 <h3 className="text-2xl font-bold mb-3 text-white">Speed Improvement</h3>
                 <p className="text-white/90 leading-relaxed">
                   Transform slow queries into high-performance operations with expert indexing and query optimization.
@@ -103,22 +103,22 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               <div className="scroll-reveal sr-anim-fade sr-delay-200 text-center">
-                <div className="bg-accent/20 backdrop-blur-sm border border-accent/40 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-accent">1</div>
+                <div className="bg-gray-900/70 backdrop-blur-sm border border-accent/50 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-accent shadow-lg">1</div>
                 <h3 className="text-xl font-bold mb-2 text-white">Assess</h3>
                 <p className="text-white/80">Comprehensive health check identifying bottlenecks and risks</p>
               </div>
               <div className="scroll-reveal sr-anim-fade sr-delay-450 text-center">
-                <div className="bg-accent/20 backdrop-blur-sm border border-accent/40 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-accent">2</div>
+                <div className="bg-gray-900/70 backdrop-blur-sm border border-accent/50 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-accent shadow-lg">2</div>
                 <h3 className="text-xl font-bold mb-2 text-white">Fix</h3>
                 <p className="text-white/80">Prioritized remediation of critical issues and quick wins</p>
               </div>
               <div className="scroll-reveal sr-anim-fade sr-delay-700 text-center">
-                <div className="bg-accent/20 backdrop-blur-sm border border-accent/40 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-accent">3</div>
+                <div className="bg-gray-900/70 backdrop-blur-sm border border-accent/50 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-accent shadow-lg">3</div>
                 <h3 className="text-xl font-bold mb-2 text-white">Automate</h3>
                 <p className="text-white/80">Implement best-practice automation and monitoring frameworks</p>
               </div>
               <div className="scroll-reveal sr-anim-fade sr-delay-700 text-center">
-                <div className="bg-accent/20 backdrop-blur-sm border border-accent/40 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-accent">4</div>
+                <div className="bg-gray-900/70 backdrop-blur-sm border border-accent/50 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-accent shadow-lg">4</div>
                 <h3 className="text-xl font-bold mb-2 text-white">Monitor</h3>
                 <p className="text-white/80">Ongoing health tracking and proactive performance management</p>
               </div>
