@@ -192,14 +192,21 @@ export default function SolutionsContactForm({
               required
               value={formData.solution}
               onChange={handleChange}
-              className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-accent"
+              className="w-full px-4 py-2 rounded-lg bg-gray-800/95 border border-white/30 text-white focus:outline-none focus:border-accent appearance-none cursor-pointer hover:bg-gray-700/95 transition-colors"
+              style={{ 
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
+                backgroundPosition: 'right 0.5rem center',
+                backgroundSize: '1.5rem',
+                backgroundRepeat: 'no-repeat',
+                paddingRight: '2.5rem'
+              }}
             >
-              <option value="">Select a solution type</option>
-              <option value="deadlock-resolution">Deadlock Resolution</option>
-              <option value="backup-dr-risk">Backup & DR Risk</option>
-              <option value="migration-risk">Migration Risk Mitigation</option>
-              <option value="slow-azure-mi">Slow Azure MI Reporting</option>
-              <option value="custom">Custom Solution</option>
+              <option value="" className="bg-gray-800 text-white">Select a solution type</option>
+              <option value="deadlock-resolution" className="bg-gray-800 text-white">Deadlock Resolution</option>
+              <option value="backup-dr-risk" className="bg-gray-800 text-white">Backup & DR Risk</option>
+              <option value="migration-risk" className="bg-gray-800 text-white">Migration Risk Mitigation</option>
+              <option value="slow-azure-mi" className="bg-gray-800 text-white">Slow Azure MI Reporting</option>
+              <option value="custom" className="bg-gray-800 text-white">Custom Solution</option>
             </select>
           </div>
 
