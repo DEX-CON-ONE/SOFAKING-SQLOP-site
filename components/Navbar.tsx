@@ -13,7 +13,7 @@ export default function Navbar() {
     "text-white hover:text-secondary transition-colors font-medium drop-shadow-md";
   
   const dropdownLinkClass = 
-    "block px-4 py-2 text-white hover:bg-white/10 hover:text-secondary transition-colors";
+    "block px-4 py-3 text-white font-medium hover:bg-white/20 hover:text-accent transition-colors";
 
   const DesktopLinks = (
     <>
@@ -34,13 +34,24 @@ export default function Navbar() {
           </svg>
         </button>
         {servicesOpen && (
-          <div className="absolute top-full left-0 mt-2 w-48 bg-gray-900/95 backdrop-blur-md rounded-lg shadow-xl border border-white/20 overflow-hidden">
-            <Link href="/services" className={dropdownLinkClass}>
-              All Services
-            </Link>
-            <Link href="/solutions" className={dropdownLinkClass}>
-              Solutions
-            </Link>
+          <div className="absolute top-full left-0 pt-2 w-56">
+            <div className="bg-gray-800/98 backdrop-blur-md rounded-lg shadow-2xl border border-white/30 overflow-hidden">
+              <Link href="/services" className={dropdownLinkClass}>
+                All Services
+              </Link>
+              <Link href="/services/performance-tuning" className={dropdownLinkClass}>
+                Performance Tuning
+              </Link>
+              <Link href="/services/health-check" className={dropdownLinkClass}>
+                Health Check
+              </Link>
+              <Link href="/services/query-optimization" className={dropdownLinkClass}>
+                Query Optimization
+              </Link>
+              <Link href="/solutions" className={dropdownLinkClass}>
+                Solutions
+              </Link>
+            </div>
           </div>
         )}
       </div>
@@ -58,23 +69,22 @@ export default function Navbar() {
           </svg>
         </button>
         {learnOpen && (
-          <div className="absolute top-full left-0 mt-2 w-48 bg-gray-900/95 backdrop-blur-md rounded-lg shadow-xl border border-white/20 overflow-hidden">
-            <Link href="/blog" className={dropdownLinkClass}>
-              Blog
-            </Link>
-            <Link href="/products" className={dropdownLinkClass}>
-              Products
-            </Link>
-            <Link href="/resources" className={dropdownLinkClass}>
-              Resources
-            </Link>
+          <div className="absolute top-full left-0 pt-2 w-48">
+            <div className="bg-gray-800/98 backdrop-blur-md rounded-lg shadow-2xl border border-white/30 overflow-hidden">
+              <Link href="/blog" className={dropdownLinkClass}>
+                Blog
+              </Link>
+              <Link href="/products" className={dropdownLinkClass}>
+                Products
+              </Link>
+              <Link href="/resources" className={dropdownLinkClass}>
+                Resources
+              </Link>
+            </div>
           </div>
         )}
       </div>
 
-      <Link href="/pricing" className={linkClass}>
-        Pricing
-      </Link>
       <Link href="/about" className={linkClass}>
         About
       </Link>
@@ -92,6 +102,15 @@ export default function Navbar() {
       <Link href="/services" className={linkClass} onClick={() => setOpen(false)}>
         Services
       </Link>
+      <Link href="/services/performance-tuning" className={`${linkClass} pl-6 text-sm`} onClick={() => setOpen(false)}>
+        Performance Tuning
+      </Link>
+      <Link href="/services/health-check" className={`${linkClass} pl-6 text-sm`} onClick={() => setOpen(false)}>
+        Health Check
+      </Link>
+      <Link href="/services/query-optimization" className={`${linkClass} pl-6 text-sm`} onClick={() => setOpen(false)}>
+        Query Optimization
+      </Link>
       <Link href="/solutions" className={`${linkClass} pl-6`} onClick={() => setOpen(false)}>
         Solutions
       </Link>
@@ -103,9 +122,6 @@ export default function Navbar() {
       </Link>
       <Link href="/resources" className={`${linkClass} pl-6`} onClick={() => setOpen(false)}>
         Resources
-      </Link>
-      <Link href="/pricing" className={linkClass} onClick={() => setOpen(false)}>
-        Pricing
       </Link>
       <Link href="/about" className={linkClass} onClick={() => setOpen(false)}>
         About
@@ -176,7 +192,7 @@ export default function Navbar() {
         </div>
         <div
           className={`md:hidden overflow-hidden transition-all duration-300 ${
-            open ? "max-h-96" : "max-h-0"
+            open ? "max-h-[600px]" : "max-h-0"
           }`}
         >
           <nav className="flex flex-col items-center space-y-4 pb-4">
