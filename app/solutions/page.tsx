@@ -76,7 +76,7 @@ export default function Solutions() {
                   <p className="text-white/90 text-lg leading-relaxed drop-shadow-sm text-shadow mb-6">
                     {solution.problem}
                   </p>
-                  <div className="flex items-center text-accent font-semibold group-hover:translate-x-2 transition-transform">
+                  <div className="inline-flex items-center text-white bg-accent/90 hover:bg-accent px-5 py-2.5 rounded-full font-semibold group-hover:translate-x-2 transition-all duration-300 shadow-md hover:shadow-lg">
                     Learn more
                     <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
